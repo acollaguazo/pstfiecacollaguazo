@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="../stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Nota técnica 5</title>
+</head>
+
+<body>
+    <h2>[NT5] NOTA TÉCNICA NO. 5</h2>
+    <h2>DESARROLLO MÓVIL</h2>
+    <span class="h4">Partes de Android Studio:</span>
+
+    <div class="row">
+        <div class="col-4">
+            <ul class="list-unstyled">
+                <li>
+                    <p>AndroidManifest.xml: Contiene la estructura de la app y los permisos necesarios su
+                        funcionamiento.</p>
+                </li>
+                <li>
+                    <p>MainActivity: Primera activity que aparece, se define la funcionalidad.</p>
+                </li>
+                <li>
+                    <p>activity_main.xml: Construcción del diseño que se muestra al usuario.</p>
+                </li>
+                <li>
+                    <p>strings.xml: Contiene los strings que se usan con frecuencia, ayuda a reducir espacio.</p>
+                </li>
+                <li>
+                    <p>build.gradle: Incluye las dependencias de la app.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-8"><img src="../images/nota5_1.png"></div>
+    </div>
+    <div class="row">
+        <div class="col-3 my-auto">
+            <p>Área de selección de componentes</p>
+            <p>Lista de componentes utilizados</p>
+        </div>
+        <div class="col-6 text-center"><img src="../images/nota5_2.png"></div>
+        <div class="col-3 my-auto">
+            <p>Selección de modo de trabajo</p>
+            <p>Área de configuraciones</p>
+        </div>
+    </div>
+    <p>El diseño también puede ser realizado utilizando únicamente el código correspondiente:</p>
+    <div class="text-center"><img src="../images/nota5_3.png"></div>
+    <span>Escenario:</span>
+    <p>En la empresa Adita S.A. se requiere la creación de una aplicación móvil para el registro de estudiantes, la cual
+        se desarrolla con Android Studio y SQLite. A continuación, se muestra paso a paso el desarrollo de la aplicación
+        móvil con cada una de sus funcionalidades correspondientes.</p>
+    <div class="text-center"><img src="../images/nota5_4.png"></div>
+    <p>La base de datos del “Sistema Académico” se muestra a continuación:</p>
+    <div class="text-center"><img src="../images/nota5_5.png"></div>
+    <span>Paso 1: Creación del diseño de la app.</span>
+    <p>A continuación, se muestra el código de los componentes utilizados y sus respectivas configuraciones, se tomó en
+        cuenta cada uno de los parámetros requeridos en la tabla presentada anteriormente.</p>
+    <div class="row text-center">
+        <div class="col-6"><img src="../images/nota5_6.png"></div>
+        <div class="col-6"><img src="../images/nota5_7.png"></div>
+    </div>
+    <p>También se puede establecer el tipo de texto a ingresar en el campo EditText</p>
+    <div class="row text-center">
+        <div class="col-6"><img src="../images/nota5_8.png"></div>
+        <div class="col-6"><img src="../images/nota5_9.png"></div>
+    </div>
+
+    <span>Paso 2. Desarrollo del código java [Base de datos interna]</span>
+    <ol>
+        <li>
+            <p>Es necesario crear un archivo .java para establecer la base de datos de SQLite.</p>
+            <div class="text-center"><img src="../images/nota5_10.png"></div>
+        </li>
+        <li>
+            <p>Se deben obtener los EditText creados en el .xml para extraer la información que ingrese el usuario:</p>
+            <div class="text-center"><img src="../images/nota5_11.png"></div>
+        </li>
+        <li>
+            <p>Se establece el método para guardar la información:</p>
+            <div class="text-center"><img src="../images/nota5_12.png"></div>
+            <p>Como se puede observar, en primer lugar creamos una instancia de la clase .java de la base de datos
+                creada en el primer paso. Obtenemos la base de datos ya creada, obtenemos el contenido de cada uno
+                de los EditText y los ingresamos en la base de datos haciendo uso del método execSQL(), fijamos como
+                vacíos los EditText con el fin de prepararlos para un nuevo ingreso de datos y finalmente cerramos
+                la base de datos.
+            </p>
+        </li>
+        <li>
+            <p>En el archivo .xml, agregar la siguiente línea al botón registro para activar el método creado:</p>
+            <div class="text-center"><img src="../images/nota5_13.png"></div>
+        </li>
+        <li>
+            <p>Para consultar al estudiante por su número de matrícula:</p>
+            <div class="text-center"><img src="../images/nota5_14.png"></div>
+            <p>En este caso se obtiene la base de datos de manera Readable, es decir, que pueda ser leída. Utiliza
+                el método rawQuery() para poder realizar la consulta a la base de datos. Se debe notar claramente
+                que el tipo de sentencia utilizada para realizar la consulta es similar a la utilizada en MySQL
+                utilizando las palabras clave select, from y where. Se recorre el Cursor para obtener los datos.
+            </p>
+        </li>
+        <li>
+            <p>Para modificar los datos de un estudiante:</p>
+            <div class="text-center"><img src="../images/nota5_15.png"></div>
+            <p>Para modificar los datos de un estudiante se debe obtener la base de datos de manera Writable, es
+                decir, en la cual se pueda escribir los datos. En este caso de utiliza el método execSQL(), tal como
+                en el paso 3, donde se agregaban los estudiantes a la base de datos.
+            </p>
+        </li>
+        <li>
+            <p>Para eliminar a un estudiante de la base de datos:</p>
+            <div class="text-center"><img src="../images/nota5_16.png"></div>
+            <p>En este caso, al igual que el paso 3 y 6, se obtiene la base de datos de manera Writable y se usa el
+                método execSQL().
+            </p>
+        </li>
+        <li>
+            <p>Para los métodos de los pasos 5, 6 y 7, se agregan al .xml de la misma manera que el paso 4.</p>
+        </li>
+    </ol>
+
+    <span>Paso 2. Desarrollo del código java [Base de datos interna]</span>
+    <ol>
+        <li>
+            <p>Se crean los archivos necesarios para los query en el servidor que hospeda la página web.</p>
+        </li>
+        <li>
+            <p>Nos aseguramos de que los permisos necesarios están establecidos en el archivo Manifest de Android
+                Studio.</p>
+        </li>
+        <li>
+            <p>Se establece el método para guardar la información:</p>
+            <div class="text-center"><img src="../images/nota5_17.png"></div>
+            <div class="text-center"><img src="../images/nota5_18.png"></div>
+            <p>Se utiliza un String Request para manejar la información, los EditText quedarán vacíos una vez se obtenga
+                una respuesta por parte del servidor web. Se envían los parámetros haciendo uso de un Map, definiendo
+                correctamente sus id y su contenido. Hay que tener en cuenta que el id colocado en Android Studio debe
+                coincidir en el colocado en el servidor web.
+            </p>
+        </li>
+        <li>
+            <p>Para consultar al estudiante por su número de matrícula:</p>
+            <div class="text-center"><img src="../images/nota5_19.png"></div>
+            <div class="text-center"><img src="../images/nota5_20.png"></div>
+            <p>En este caso, como se desea saber la información de un estudiante, se obtiene un Json Array, del cual se
+                obtendrá la información en forma de un Json Object, al cual se le especificará la clave del dato que se
+                desea obtener.
+            </p>
+        </li>
+        <li>
+            <p>Para modificar los datos de un estudiante:</p>
+            <div class="text-center"><img src="../images/nota5_21.png"></div>
+            <div class="text-center"><img src="../images/nota5_22.png"></div>
+            <p>Para modificar la información de un estudiante, se utiliza el mismo código del paso 3.
+            </p>
+        </li>
+        <li>
+            <p>Para eliminar a un estudiante de la base de datos:</p>
+            <div class="text-center"><img src="../images/nota5_23.png"></div>
+            <div class="text-center"><img src="../images/nota5_24.png"></div>
+            <p>Para eliminar a un estudiante, se utiliza el código de la misma manera que en el paso anterior, esta vez,
+                solo enviando la matrícula del estudiante a eliminar.
+            </p>
+        </li>
+    </ol>
+    <p>Funcionamiento de la aplicación móvil:</p>
+    <div class="row">
+        <div class="col-4 text-right"><img src="../images/nota5_25.png"></div>
+        <div class="col-4 text-center"><img src="../images/nota5_26.png"></div>
+        <div class="col-4"><img src="../images/nota5_27.png"></div>
+    </div>
+    <div class="row">
+        <div class="col-4 text-right"><img src="../images/nota5_28.png"></div>
+        <div class="col-4 text-center"><img src="../images/nota5_29.png"></div>
+        <div class="col-4"><img src="../images/nota5_30.png"></div>
+    </div>
+    <div class="row">
+        <div class="col-6 text-center"><img src="../images/nota5_31.png"></div>
+        <div class="col-6 text-center"><img src="../images/nota5_32.png"></div>
+    </div>
+</body>
+
+</html>

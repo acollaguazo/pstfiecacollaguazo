@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="../stylesheets/styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Nota técnica 3</title>
+</head>
+
+<body>
+    <h2>[NT3] NOTA TÉCNICA NO°. 3</h2>
+    <h2>DISEÑO DE MODELO ENTIDAD RELACIÓN</h2>
+
+    <span>Escenario:</span>
+    <p>La empresa Dianita S.A. que desarrolla aplicaciones web, le ha pedido a usted, como parte de su equipo de trabajo
+        que implemente un sistema de base de datos que permita a los usuarios administrar una biblioteca de música en
+        línea.
+        La primera vez que el usuario ingresa a la aplicación web, se le pide que se registre y cree una cuenta. Los
+        datos obligatorios que el usuario debe de llenar son: nombre, apellido, nombre de usuario, correo electrónico,
+        contraseña. Una vez ingresados los datos se valida que el usuario no exista en la base de datos y se le envía un
+        correo de confirmación indicando que su cuenta ha sido agregada con éxito. Dentro de los datos de la cuenta, el
+        usuario también puede modificar los datos ya ingresados y llenar nueva información como: género, fecha de
+        nacimiento, dirección, ciudad, país y código postal.
+        Cuando el usuario ingresa a la aplicación web, tiene la posibilidad de agregar canciones y álbumes de los
+        artistas a la lista de canciones principal (todos los usuarios poseen esta lista de canciones). Cada usuario
+        también puede crear listas de canciones y agregar canciones a una lista específica.
+        De cada canción se desea guardar el nombre, la duración, el rating (que puede ser un número del 1 al 5), el
+        número de veces que ha sido escuchada por todos los usuarios, el álbum al cual pertenece la canción, el
+        género de música del álbum y el rating del álbum. Cada álbum tiene su fecha de lanzamiento por lo que se
+        desea guardar el año, mes y día. Adicionalmente, cada álbum tiene una portada (imagen) para que pueda ser
+        identificada por el usuario.
+        Una canción puede ser interpretada por uno o varios artistas. Se desea guardar la siguiente información de los
+        artistas: el nombre del artista que la interpreta, el género de música que el artista interpreta, el rating
+        del artista, el número de veces que los usuarios han escuchado a dicho artista y el o los álbumes de canciones
+        que el artista ha lanzado al público.
+        Cada vez que el usuario crea una lista de canciones le pide ingresar un nombre, subir una imagen (opcional),
+        agregar una descripción, además de indicar si la lista es pública (cualquier usuario puede verla) o privada
+        (solamente el usuario tiene el privilegio de ver su lista de canciones). La aplicación web también permite
+        modificar o/y eliminar listas de canciones.
+        Cada vez que el usuario agrega una canción a una lista de canciones se debe de guardar la fecha y hora en la
+        que se realizó dicha acción.
+    </p>
+    <div class="text-center">
+        <div><img src="../images/nota3_er.png"></div>
+        <small>Nota: El tipo de atributo opcional se representa con “O”, obligatorio se representa con “*”, clave
+            primaria con “PK”, y clave foránea con “FK”.</small>
+    </div>
+
+    <span>Paso 1. Creación de las entidades del modelo entidad-relación, de acuerdo con el escenario propuesto.</span>
+    <div class="row">
+        <div class="col-6 my-auto">
+            <p>La primera vez que el usuario ingresa a la aplicación web, se le pide que se registre y cree una cuenta.
+                Los datos obligatorios que el usuario debe de llenar son: nombre, apellido, nombre de usuario, correo
+                electrónico, contraseña. Una vez ingresados los datos se valida que el usuario no exista en la base de
+                datos y se le envía un correo de confirmación indicando que su cuenta ha sido agregada con éxito.</p>
+        </div>
+        <div class="col-2 text-center my-auto"><i class="material-icons-round">east</i></div>
+        <div class="col-4">
+            <img src="../images/nota3_e1.png">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 my-auto">
+            <p>Dentro de los datos de la cuenta, el usuario también puede modificar los datos ya ingresados y llenar
+                nueva información como: género, fecha de nacimiento.</p>
+        </div>
+        <div class="col-2 text-center my-auto"><i class="material-icons-round">east</i></div>
+        <div class="col-4">
+            <img src="../images/nota3_e2.png">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 my-auto">
+            <p>Dirección, ciudad, país y código postal.</p>
+        </div>
+        <div class="col-2 text-center my-auto"><i class="material-icons-round">east</i></div>
+        <div class="col-4">
+            <img src="../images/nota3_e3.png">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 my-auto">
+            <p>De cada canción se desea guardar el nombre, la duración, el rating (que puede ser un número del 1 al
+                5), el número de veces que ha sido escuchada por todos los usuarios, el álbum al cual pertenece la
+                canción, el género de música del álbum y el rating del álbum.</p>
+        </div>
+        <div class="col-2 text-center my-auto"><i class="material-icons-round">east</i></div>
+        <div class="col-4">
+            <img src="../images/nota3_e4.png">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 my-auto">
+            <p>El álbum al cual pertenece la canción, el género de música del álbum y el rating del álbum.
+                Cada álbum tiene su fecha de lanzamiento por lo que se desea guardar el año, mes y día.
+                Adicionalmente, cada álbum tiene una portada (imagen) para que pueda ser identificada por el usuario.
+            </p>
+        </div>
+        <div class="col-2 text-center my-auto"><i class="material-icons-round">east</i></div>
+        <div class="col-4">
+            <img src="../images/nota3_e5.png">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 my-auto">
+            <p>Una canción puede ser interpretada por uno o varios artistas. Se desea guardar la siguiente información
+                de los artistas: el nombre del artista que la interpreta, el género de música que el artista
+                interpreta, el rating del artista, el número de veces que los usuarios han escuchado a dicho artista y
+                el o los álbumes de canciones que el artista ha lanzado al público. </p>
+        </div>
+        <div class="col-2 text-center my-auto"><i class="material-icons-round">east</i></div>
+        <div class="col-4">
+            <img src="../images/nota3_e6.png">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 my-auto">
+            <p>Cada vez que el usuario crea una lista de canciones le pide ingresar un nombre, subir una imagen
+                (opcional), agregar una descripción, además de indicar si la lista es pública (cualquier usuario
+                puede verla) o privada (solamente el usuario tiene el privilegio de ver su lista de canciones). La
+                aplicación web también permite modificar o/y eliminar listas de canciones. El campo tipo es la
+                variable que agrupa a la indicación de si la lista es pública o privada.</p>
+        </div>
+        <div class="col-2 text-center my-auto"><i class="material-icons-round">east</i></div>
+        <div class="col-4">
+            <img src="../images/nota3_e7.png">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 my-auto">
+            <p>Cada vez que el usuario agrega una canción a una lista de canciones se debe de guardar la fecha y hora
+                en la que se realizó dicha acción.</p>
+        </div>
+        <div class="col-2 text-center my-auto"><i class="material-icons-round">east</i></div>
+        <div class="col-4">
+            <img src="../images/nota3_e8.png">
+        </div>
+    </div>
+</body>
+
+</html>

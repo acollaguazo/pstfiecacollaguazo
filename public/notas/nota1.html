@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="../stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Nota técnica 1</title>
+</head>
+
+<body>
+    <h2>[NT1] NOTA TÉCNICA NO°. 1</h2>
+    <h2>MODELO DE REDES DE DATOS</h2>
+    <p><span>Escenario: </span>La empresa Adita S.A. con la matriz en Guayaquil, sucursales en Cuenca, Quito y Galápagos
+        tiene el diagrama de red mostrado en la Figura 1. Se han presentado problemas de conectividad entre las
+        sucursales, para identificarlos se usa el modelo de redes de datos OSI.</p>
+    <div class="row">
+        <div><img src="../images/nota1_red.png" alt="Figura1. Diagrama de red"></div>
+        <small>Figura 1. Diagrama de red</small>
+    </div>
+
+    <span>Paso 1. Identifica los errores de la capa física (1).</span>
+
+    <table class="border text-center">
+        <tr class="border">
+            <td></td>
+            <th>Tipos de conexiones</th>
+            <td></td>
+        </tr>
+        <tr class="border">
+            <th>Conexión directa</th>
+            <td class="border">Equipos diferentes. Por ejemplo:<br>
+                Switch -> PC<br>
+                Switch -> Router<br>
+            </td>
+            <td><img src="../images/nota1_dir.png"></td>
+        </tr>
+        <tr class="border">
+            <th>Conexión cruzada</th>
+            <td class="border">Equipos de igual naturaleza. Por ejemplo:<br>PC-Router</td>
+            <td><img src="../images/nota1_cruz.png"></td>
+        </tr>
+        <tr class="border">
+            <th>WAN</th>
+            <td class="border">Para redes separadas por grandes distancias</td>
+            <td><img src="../images/nota1_wan.png"></td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-6">
+            <div><img src="../images/nota1_red2.png"
+                    alt="Figura 2. Diagrama de red corregido de errores en la capa física"></div>
+            <small>Figura 2. Diagrama de red corregido de errores en la capa física</small>
+        </div>
+        <div class="col-6 my-auto">
+            <h6>7 errores en la capa física</h6>
+        </div>
+    </div>
+    <span>Paso 2. Identifica los errores de direccionamiento IP en la capa de red (3).</span>
+    <h6>4 errores en la capa de red</h6>
+    <table>
+        <tr>
+            <th>N°.</th>
+            <th>Subred</th>
+            <th>Cálculos</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>192.168.<span>1</span>.0/24</th>
+            <th>Saltos de 2<sup>0</sup>=1 en el tercer octeto</th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>192.168.<span>2</span>.0/30</th>
+            <th>Saltos de 2<sup>2</sup>=4 en el cuarto octeto</th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>192.168.2.<span>4</span>/30</th>
+            <th>Saltos de 2<sup>2</sup>=4 en el cuarto octeto</th>
+        </tr>
+        <tr>
+            <th>4</th>
+            <th>192.168.2.<span>8</span>/30</th>
+            <th>Saltos de 2<sup>2</sup>=4 en el cuarto octeto</th>
+        </tr>
+        <tr>
+            <th>5</th>
+            <th>192.168.2.<span>12</span>/30</th>
+            <th>Saltos de 2<sup>2</sup>=4 en el cuarto octeto</th>
+        </tr>
+        <tr>
+            <th>6</th>
+            <th>192.168.2.<span>16</span>/30</th>
+            <th>Saltos de 2<sup>2</sup>=4 en el cuarto octeto</th>
+        </tr>
+        <tr>
+            <th>7</th>
+            <th>192.168.2.<span>20</span>/30</th>
+            <th>Saltos de 2<sup>2</sup>=4 en el cuarto octeto</th>
+        </tr>
+        <tr>
+            <th>8</th>
+            <th>192.168.2.<span>36</span>/30</th>
+            <th>Aquí existe un espacio libre entre las subredes<br><br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11000000.10101000.00000010.00100100 <- IP de
+                    Subred 8<br>
+                    AND 11111111.11111111.11111111.11110000 <- Máscara en binario<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11000000.10101000.00000010.00100000 <- IP
+                            de Subred 8 corregida<br>
+                            Subred 8 corregida -> 192.168.2.32/28<br>
+                            Saltos de 2<sup>4</sup>=16 en el cuarto octeto la siguiente subred sería
+                            192.168.2.48<br><br>
+
+                            Se realiza la operación AND para obtener la Subred correcta
+            </th>
+        </tr>
+        <tr>
+            <th>7</th>
+            <th>192.168.2.<span>100</span>/30</th>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11000000.10101000.00000010.01100100 <- IP de
+                    Subred 9<br>
+                    AND 11111111.11111111.11111111.11000000 <- Máscara en binario<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11000000.10101000.00000010.01000000 <- IP
+                            de Subred 9 corregida<br>
+                            Subred 9 corregida -> 192.168.2.64/26
+            </th>
+        </tr>
+    </table>
+
+    <table class="text-center">
+        <tr>
+            <th>Dispositivos</th>
+            <th>IP del dispositivo</th>
+            <th>Subred</th>
+            <th>Rango</th>
+            <th>Observaciones</th>
+        </tr>
+        <tr>
+            <th>PC0</th>
+            <td>192.168.1.120</td>
+            <td>Subred 1</td>
+            <td>192.168.1.1-192.168.1.254</td>
+            <td>Es correcta</td>
+        </tr>
+        <tr>
+            <th>PC1</th>
+            <td>192.168.2.98</td>
+            <td>Subred 7</td>
+            <td>192.168.2.21-192.168.2.22</td>
+            <td><span>No es válida</span></td>
+        </tr>
+        <tr>
+            <th>PC2</th>
+            <td>192.168.2.90</td>
+            <td>Subred 9</td>
+            <td>192.168.2.65-192.168.2.126</td>
+            <td>Es válida</td>
+        </tr>
+        <tr>
+            <th>PC3</th>
+            <td>192.168.2.98</td>
+            <td>Subred 8</td>
+            <td>192.168.2.33-192.168.2.46</td>
+            <td><span>No es válida</span></td>
+        </tr>
+    </table>
+    <p>Conclusión: El diagrama presenta 11 errores en total, siendo 7 errores de la capa física, y 4 errores de la capa
+        de red asociadas al direccionamiento de red.</p>
+</body>
+
+</html>

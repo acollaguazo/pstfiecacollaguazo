@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="../stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Nota técnica 2</title>
+</head>
+
+<body>
+    <h2>[NT2] NOTA TÉCNICA N°. 2</h2>
+    <h2>ADMINISTRACIÓN DE LINUX MEDIANTE LÍNEA DE COMANDOS</h2>
+
+    <span>Estructura de comandos</span>
+    <p>linux@localhost: ~$ [comando] [opciones] [argumentos]</p>
+    <div class="text-center"><img src="../images/nota2.png"></div>
+
+    <div class="row">
+        <div class="col-6">
+            <span>Comandos básicos</span>
+            <ul class="list-unstyled">
+                <li>sudo su: Cambiar de usuario.</li>
+                <li>mkdir: Crea un directorio colocando el nombre del nuevo directorio.</li>
+                <li>cd: Navega de un directorio actual a otro. Al utilizar únicamente el comando cd, devuelve al usuario
+                    al
+                    directorio de inicio.</li>
+                <li>ll: Muestra una lista detallada del contenido de un directorio.</li>
+                <li>pwd: arroja el directorio de la ubicación actual del usuario en el sistema de archivos.</li>
+                <li>cp: Copia un archivo del directorio indicado.</li>
+                <li>mv: Mueve el archivo, indicando como parámetros el directorio origen y destino.</li>
+                <li>rm -Rf: Elimina un directorio o carpeta, es necesario utilizar la opción ‘-Rf’ para un borrado
+                    recursivo.
+                </li>
+                <li>nano: Edita o crea archivos de texto.</li>
+                <li>more / less: Muestra el contenido de un archivo.</li>
+                <li>kill: Elimina un proceso usando el identificador del proceso.</li>
+                <li>wget: Descarga de archivos desde Internet usando el enlace.</li>
+                <li>df -hk: Muestra la capacidad del disco duro, la opción -k indica la unidad en kilobytes.</li>
+                <li>top: Muestra los procesos activos en el sistema.</li>
+                <li>chmod: Modifica los permisos de un archivo o directorio.</li>
+            </ul>
+        </div>
+        <div class="col-6">
+            <span>Comandos para instalación/actualización de paquetes</span>
+            <ul class="list-unstyled">
+                <li>apt-get / yum -y install: En Ubuntu se usa “apt-get”, que instala un paquete específico usando
+                    Internet. En CentOS se usa el gestor de paquetes “yum” que instala un paquete desde Internet.</li>
+                <li>apt-get / yum update: Actualiza la lista de paquetes disponibles y sus versiones de los repositorios
+                    que definidos en el archivo /etc/apt/sources.list.</li>
+                <li>apt-get / yum upgrade: Realiza actualizaciones de los paquetes en la lista obtenida en apt-get
+                    update.</li>
+            </ul>
+            <span>Comandos para comunicación en la red</span>
+            <ul class="list-unstyled">
+                <li>ifconfig / ip addr ls: Muestra las interfaces de red activas.</li>
+                <li>netstat -nl: Muestra los sockets con los puertos de las conexiones establecidas.</li>
+                <li>route -n: Muestra las rutas y la puerta de enlace.</li>
+                <li>ping -I ip_origen ip_destino: Prueba de conectividad de un host de origen a un host de destino.</li>
+                <li>traceroute: Muestras las rutas hacia un destino.</li>
+                <li>lynx: Navegación en modo texto.</li>
+                <li>service network restart // /etc/init.d/network-manager restart: Permite reiniciar el servicios de
+                    red.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
