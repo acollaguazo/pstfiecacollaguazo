@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="public/stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Laboratorio 1</title>
+</head>
+
+<body>
+    <h2>Laboratorio 1</h2>
+    <h2>Configuración de una red inalámbrica</h2>
+    <h4>Objetivo:</h4>
+    <p>Configurar un enrutador para crear una subred y poder interconectar dispositivos cableados e inalámbricos.</p>
+    <h5>Duración:</h5>
+    <p>Ciento veinte (120) minutos.</p>
+    <h5>Materiales y Herramientas:</h5>
+    <p>Software Packet Tracer</p>
+    <h5>Introducción:</h5>
+    <p>Una red informática es el conjunto de sistemas informáticos conectados entre sí mediante una serie de
+        dispositivos cableados o inalámbricos, gracias a los cuales pueden compartir información en paquetes de datos,
+        transmitidos mediante impulsos eléctricos, ondas electromagnéticas o cualquier otro medio físico.
+    </p>
+    <p>Las redes informáticas pueden definirse según su propósito y/o alcance:</p>
+    <ul>
+        <li>
+            <p>Redes PAN</p>
+        </li>
+        <li>
+            <p>Redes LAN</p>
+        </li>
+        <li>
+            <p>Redes WLAN</p>
+        </li>
+        <li>
+            <p>Redes MAN</p>
+        </li>
+        <li>
+            <p>Redes WAN</p>
+        </li>
+    </ul>
+    <p>Una red inalámbrica utiliza ondas de radio electromagnéticas para conectar dispositivos con la ventaja de poder
+        desplazarlos dentro del rango de alcance. Los puntos de acceso (AP) amplifican las señales de Wifi, por lo que
+        un dispositivo puede estar lejos de un enrutador, pero aun así estar conectado a la red.
+    </p>
+    <p>Anteriormente, se pensaba que las redes cableadas eran más rápidas y seguras que las redes inalámbricas. Sin
+        embargo, las mejoras continuas en la tecnología de redes inalámbricas, como el estándar de redes Wifi 6, han
+        disminuido las diferencias de velocidad y seguridad entre las redes cableadas e inalámbricas.
+    </p>
+    <p>Las direcciones IP (Internet Protocol) son un conjunto de números que permiten la identificación de una interfaz
+        de un dispositivo conectado a una red que corre el protocolo IP; estas pueden ser estáticas o dinámicas.
+    </p>
+    <h5>Investigación</h5>
+    <h6>Pregunta 1: ¿Cuál es la diferencia entre un enrutador inalámbrico y un Punto de Acceso (AP-Access Point)?</h6>
+    <h6>Pregunta 2: Describa brevemente cada uno de los tipos de redes según su alcance.</h6>
+    <h5>Topología</h5>
+    <div class="text-center"><img src="../images/lab1_1.png"></div>
+    <h5>Tabla de direccionamiento</h5>
+    <table>
+        <tr>
+            <th>Dispositivo</th>
+            <th>Interfaz</th>
+            <th>Dirección IP</th>
+            <th>Máscara de Subred</th>
+            <th>Puerta de enlace predeterminada</th>
+        </tr>
+        <tr>
+            <td>Router0</td>
+            <td>Internet</td>
+            <td>DHCP</td>
+            <td>DHCP</td>
+            <td>DHCP</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>GigabitEthernet 1</td>
+            <td>192.168.X.1</td>
+            <td>28</td>
+            <td>No aplica</td>
+        </tr>
+        <tr>
+            <td>SmartPhone0</td>
+            <td>Wireless0</td>
+            <td>DHCP</td>
+            <td>DHCP</td>
+            <td>DHCP</td>
+        </tr>
+        <tr>
+            <td>Laptop0</td>
+            <td>Wireless0</td>
+            <td>DHCP</td>
+            <td>DHCP</td>
+            <td>DHCP</td>
+        </tr>
+    </table>
+    <div>
+        <img src="../images/lab_danger.png">
+        <small>La X debe ser reemplazada por el número del paralelo (101, 102 o 103).</small>
+    </div>
+
+    <h5>Procedimiento</h5>
+    <p>
+        <span class="h6">Paso 1: </span>Configuración física de la red
+    </p>
+    <ol>
+        <li>
+            <p>Ejecutar el archivo Practica 1.pkt proporcionado por el profesor.</p>
+        </li>
+        <li>
+            <p>En la pantalla de LOGIN, seleccione Guest Login en la parte inferior derecha de la ventana.</p>
+            <div class="text-center"><img src="../images/lab1_2.png"></div>
+        </li>
+        <li>
+            <p>Cierre el navegador web y regrese a la pantalla de LOGIN, espere unos segundos y seleccione Confirm
+                Guest.</p>
+            <div class="text-center"><img src="../images/lab1_3.png"></div>
+        </li>
+        <li>
+            <p>Observará la siguiente topología; los parámetros y servicios del servidor y de la nube ya han sido
+                configurados previamente.</p>
+            <div class="text-center"><img src="../images/lab1_4.png"></div>
+        </li>
+        <li>
+            <p>Colocar los elementos faltantes en la topología.</p>
+            <ul>
+                <li>
+                    <p>Home Router</p>
+                </li>
+                <li>
+                    <p>Smart Device</p>
+                </li>
+                <li>
+                    <p>Laptop</p>
+                </li>
+            </ul>
+            <div class="text-center"><img src="../images/lab1_5.png"></div>
+            <div class="text-center"><img src="../images/lab1_6.png"></div>
+            <div class="text-center"><img src="../images/lab1_7.png"></div>
+        </li>
+        <li>
+            <p>Dar clic en el ícono de la laptop, apagarla, eliminar el adaptador ethernet y colocar el adaptador Wifi y
+                volver a encenderla.</p>
+            <div class="text-center"><img src="../images/lab1_8.png"></div>
+            <div class="text-center"><img src="../images/lab1_9.png"></div>
+            <div class="text-center"><img src="../images/lab1_10.png"></div>
+            <div class="text-center"><img src="../images/lab1_11.png"></div>
+        </li>
+        <li>
+            <p>Realizar las conexiones con el ícono Automatically Choose Connection Type (Rayo naranja), dando clic de
+                un dispositivo a otro.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto"><small>Una vez seleccionado la opción de conexión automática, dar clic
+                        PRIMERO en el Router y luego en el Modem. Esperar a que todos los indicadores estén en verde y
+                        se establezcan las conexiones inalámbricas
+                    </small></div>
+            </div>
+            <div class="text-center"><img src="../images/lab1_12.png"></div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 2: </span>Configuración WAN en el enrutador (router)
+    </p>
+    <ol>
+        <li>
+            <p>Abrir la ventana de aplicaciones de Laptop0 dando clic en el ícono del dispositivo y seleccionar la
+                pestaña Desktop.
+            </p>
+            <div class="text-center"><img src="../images/lab1_13.png"></div>
+        </li>
+        <li>
+            <p>Escoger el ícono Web Browser e ingresar la dirección 192.168.0.1 (IP por defecto)
+            </p>
+            <div class="text-center"><img src="../images/lab1_14.png"></div>
+        </li>
+        <li>
+            <p>Ingresar las credenciales user: admin, password: admin.
+            </p>
+            <div class="text-center"><img src="../images/lab1_15.png"></div>
+        </li>
+        <li>
+            <p>Verificar que en la opción “Internet Connection type” esté seleccionada la opción “Automatic
+                Configuration - DHCP”
+            </p>
+            <div class="text-center"><img src="../images/lab1_16.png"></div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 2: </span>Configuración de la red inalámbrica
+    </p>
+    <ol>
+        <li>
+            <p>En el menú superior seleccionar la opción “Wireless” → “Basic Wireless Settings” y luego cambiar el
+                nombre de la red (SSID) con su “Nombre-Apellido”.
+            </p>
+            <div>
+                <img src="../images/lab_danger.png">
+                <small>Asegúrese de que las frecuencias 5GHz – 2 y 5GHz – 1 estén desactivadas.</small>
+            </div>
+            <div class="text-center"><img src="../images/lab1_17.png"></div>
+        </li>
+        <li>
+            <p>Guardar configuración.
+            </p>
+        </li>
+        <li>
+            <p>Cerrar el Web Browser, abrir PC Wireless, seleccionar la pestaña Connect y conectarse a la red con su
+                nombre.
+            </p>
+            <div class="text-center"><img src="../images/lab1_18.png"></div>
+        </li>
+        <li>
+            <p>Volver al Web Browser y acceder al router con las credenciales del paso 2, literal c.
+            </p>
+        </li>
+        <li>
+            <p>Seleccionar la opción “Wireless” → “Wireless Security” y realizar las siguientes configuraciones:
+            </p>
+            <ul>
+                <li>Modo de seguridad 2.4 GHz: WPA Personal</li>
+                <li>Encriptación: AES</li>
+                <li>Contraseña: TLMG1037</li>
+            </ul>
+            <div class="text-center"><img src="../images/lab1_19.png"></div>
+        </li>
+        <li>
+            <p>Guardar configuración.
+            </p>
+        </li>
+        <li>
+            <p>Volver a conectarse a la red inalámbrica con la contraseña creada.
+            </p>
+        </li>
+    </ol>
+
+    <h6>Pregunta 3: Describa los diferentes modos de seguridad inalámbrica.</h6>
+    <p>
+        <span class="h6">Paso 3: </span>Configuración general de la subred
+    </p>
+    <ol>
+        <li>
+            <p>Ingresar a la configuración del Router</p>
+        </li>
+        <li>
+            <p>En el menú lateral, en la sección “Network Setup”, realizar las siguientes configuraciones:</p>
+            <ul>
+                <li>
+                    <p><span class="h6">IP Address:</span> 192.168.x.1</p>
+                </li>
+                <li>
+                    <p><span class="h6">Subnet Mask:</span> 28</p>
+                </li>
+                <li>
+                    <p><span class="h6">Start IP Address:</span> 192.168.x.__</p>
+                </li>
+                <li>
+                    <p><span class="h6">Rango DHCP:</span> Asignar todas las direcciones IP disponibles PARA HOSTS,
+                        excepto las 5 últimas.</p>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p>Guardar configuraciones</p>
+        </li>
+    </ol>
+
+    <h6>Pregunta 4: Luego de guardar las configuraciones, ¿tuvo inconvenientes para acceder a las configuraciones del
+        router nuevamente?, explique qué ocurrió.</h6>
+    <h6>Pregunta 5: Basado en las configuraciones anteriores, indique el rango de direcciones IP que el router entregará
+        por DHCP.</h6>
+    <p>
+        <span class="h6">Paso 4: </span>Pruebas de conexión
+    </p>
+    <ol>
+        <li>
+            <p>Conectar el dispositivo smartphone a la red creada.
+            </p>
+            <div class="text-center"><img src="../images/lab1_20.png"></div>
+        </li>
+        <li>
+            <p>Ingresar a la página web pst.espol.edu.ec
+            </p>
+        </li>
+        <li>
+            <p>Probar conectividad haciendo PING hacia la dirección IP de Laptop0 desde Smartphone0 conectado
+                anteriormente, con el comando: ping IP_Laptop0.
+            </p>
+            <div>
+                <img src="../images/lab_danger.png">
+                <small>Reemplazar IP_Laptop0 por la IP de la laptop</small>
+            </div>
+            <div class="text-center"><img src="../images/lab1_21.png"></div>
+        </li>
+    </ol>
+
+    <h2>RETO</h2>
+    <ol>
+        <li>
+            <p>Conectar una computadora por cable ethernet hacia el enrutador y configurarla con la siguiente dirección
+                IP estática, 192.168.x.30/28, el Default Gateway: 192.168.x.1 y el servidor DNS: 208.67.220.220; pruebe
+                conectividad con cualquier dispositivo inalámbrico.
+            </p>
+            <h6>Pregunta 6: ¿Existe conectividad entre la computadora y el dispositivo inalámbrico?, ¿Por qué?</h6>
+        </li>
+        <li>
+            <p>Configurar la computadora con una dirección IP estática que permita tener conectividad con el
+                dispositivo inalámbrico y que no entre en conflicto con las direcciones por DHCP del enrutador
+                (asumiendo que se han usado TODAS las del rango DHCP configurado en el paso3 literal 2).</p>
+        </li>
+    </ol>
+</body>
+
+</html>
