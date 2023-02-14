@@ -16,16 +16,353 @@
 </head>
 
 <body>
-<h2>[NT4] NOTA TÉCNICA NO. 4</h2>
-<h2>DESARROLLO WEB LOCAL Y EN LA NUBE CON REACT, NODE.JS, MYSQL</h2>
-<span class="h4">Escenario:</span>
-<p>La institución educativa AditaEdu tiene un servidor web que aloja el dominio adita.com, siendo desarrollada la página web con JavaScript, y para el almacenamiento de los datos, MySQL. Primero se presenta el código fuente completo del desarrollo web con los datos del módulo académico. Luego, se presenta el paso a paso del desarrollo web, del backend como del frontend.</p>
-<h4>Desarrollo web local</h4>
-<span class="h4">Backend</span>
-<h4>databaseCon.js</h4>
-<div><img src="../images/nota4_1.png"></div>
-<h4>estudiante.controller.js</h4>
-<div><img src="../images/nota4_2.png"></div>
+    <h2>[NT4] NOTA TÉCNICA NO. 4</h2>
+    <h2>DESARROLLO WEB LOCAL Y EN LA NUBE CON REACT, NODE.JS, MYSQL</h2>
+    <span class="h4">Escenario:</span>
+    <p>La institución educativa AditaEdu tiene un servidor web que aloja el dominio adita.com, siendo desarrollada la
+        página web con JavaScript, y para el almacenamiento de los datos, MySQL. Primero se presenta el código fuente
+        completo del desarrollo web con los datos del módulo académico. Luego, se presenta el paso a paso del desarrollo
+        web, del backend como del frontend.
+    </p>
+    <h4>Desarrollo web local</h4>
+    <span class="h4">Backend</span>
+    <h4>databaseCon.js</h4>
+    <div><img src="../images/nota4_1.png"></div>
+    <h4>estudiante.controller.js</h4>
+    <div><img src="../images/nota4_2.png"></div>
+    <h4>estudiante.js</h4>
+    <div><img src="../images/nota4_3.png"></div>
+    <h4>app.js</h4>
+    <div><img src="../images/nota4_4.png"></div>
+
+    <span class="h4">Frontend</span>
+    <h4>ListEstudiantes.js</h4>
+    <div><img src="../images/nota4_5.png"></div>
+    <div><img src="../images/nota4_6.png"></div>
+    <div><img src="../images/nota4_7.png"></div>
+    <h4>Header.js</h4>
+    <div><img src="../images/nota4_8.png"></div>
+    <h4>EstudianteLayout.js</h4>
+    <div><img src="../images/nota4_9.png"></div>
+    <h4>index.js</h4>
+    <div><img src="../images/nota4_10.png"></div>
+    <h4>La hoja de estilos (CSS) usada se muestra a continuación:</h4>
+    <div><img src="../images/nota4_11.png"></div>
+    <h4>La base de datos del “Sistema Académico” se muestra a continuación:</h4>
+    <div><img src="../images/nota4_12.png"></div>
+
+    <span>Paso 1. Conexión con la base de datos. </span>
+    <ol>
+        <li>
+            <p>Se debe usar al módulo de MYSQL, mediante la siguiente línea de código, presente en el archivo
+                “databaseCon.js”:
+            </p>
+            <div><img src="../images/nota4_13.png"></div>
+        </li>
+        <li>
+            <p>Se crea la conexión especificando la base de datos (mysql.createConnection()), el usuario, host
+                contraseña de nuestra base de datos creada. Y se lo exporta como módulo, para luego poder usarlo en
+                cualquier parte de nuestro programa, en este caso en el archivo estudiante.controller.js.
+            </p>
+            <div><img src="../images/nota4_14.png"></div>
+        </li>
+    </ol>
+
+    <span>Paso 2. Consulta a la base de datos</span>
+    <ol>
+        <li>
+            <p>Se importa el módulo creado en el archivo databaseCon.js y se llama al método dbConnection() que nos
+                ayudará instanciando al objeto connect, para luego realizar la consulta.
+            </p>
+            <div><img src="../images/nota4_15.png"></div>
+        </li>
+        <li>
+            <p>Se crea la función asincrónica getEstudiante(), se especifica que se obtendrán todos los registros de
+                la tabla creada utilizando “*” y se valida que exista una respuesta, caso contrario se envía un mensaje
+                de error.
+            </p>
+            <div><img src="../images/nota4_16.png"></div>
+        </li>
+        <li>
+            <p>Se exporta el módulo creado con la función getEstudiante().
+            </p>
+            <div><img src="../images/nota4_17.png"></div>
+        </li>
+    </ol>
+
+    <span>Paso 3. Mostrar la página del backend</span>
+    <ol>
+        <li>
+            <p>Se configura el puerto en el cual se mostrará el backend, se obtiene la función getEstudiante() y se
+                hace uso de la función.
+            </p>
+            <div><img src="../images/nota4_18.png"></div>
+        </li>
+        <li>
+            <p>Se publica el backend y se lo imprime un mensaje de confirmación por consola.
+            </p>
+            <div><img src="../images/nota4_19.png"></div>
+        </li>
+    </ol>
+
+    <span>Paso 4. Desarrollo del código del Frontend.</span>
+    <ol>
+        <li>
+            <p>Se crea la cabecera con el título de la página parametrizado. Los tags
+                &lt;h1&gt;&lt;/h1&gt; indican un tamaño de letra utilizado para los títulos, debido a su altura. Con
+                export default permitimos que otro archivo pueda usar este componente.
+            </p>
+            <div><img src="../images/nota4_20.png"></div>
+        </li>
+        <li>
+            <p>Se declara la clase ListEstudiantes que extiende de Component y se la habilita para poder ser usada por
+                otros archivos.
+            </p>
+            <div><img src="../images/nota4_21.png"></div>
+        </li>
+        <li>
+            <p>Se crea la lista users, y se especifican los datos que guardará esta lista, tales como: id del
+                estudiante, nombre del estudiante, apellidos, edad e id de la carrera.
+            </p>
+            <div><img src="../images/nota4_22.png"></div>
+        </li>
+        <li>
+            <p>Se obtienen los datos del backend haciendo uso del URL de la página y se los almacena en la lista.
+            </p>
+            <div><img src="../images/nota4_23.png"></div>
+        </li>
+        <li>
+            <p>Crear el mensaje de alerta parametrizado mediante “msj”.
+            </p>
+            <div><img src="../images/nota4_24.png"></div>
+        </li>
+        <li>
+            <p>Comenzamos la creación de una tabla centrada (&lt;center&gt;) con un borde fino border=”1”, se le da
+                títulos a las columnas, se centra el texto de las celdas y ajustamos el ancho correspondiente a los
+                pixeles especificados.
+            </p>
+            <div><img src="../images/nota4_25.png"></div>
+        </li>
+        <li>
+            <p>Se crean filas con su contenido centrado y colores definidos, se recorre la lista como mapa de acuerdo al
+                dato que se quiera obtener. Por ejemplo, en la primera fila se recorre el id de los estudiantes; luego,
+                se realiza el mismo método para las otras columnas de la base de datos.
+            </p>
+            <div><img src="../images/nota4_26.png"></div>
+        </li>
+        <li>
+            <p>Se cierran los tags de la tabla, se espacian tres líneas y se crea un botón asociado a la función de
+                alerta mediante:<br>onClick={()=>alerta("Existen"+this.state.users.length+" estudiantes en la
+                lista")<br>
+                El botón posee formato (class=”btn”), obtenido de un archivo .css, el cual será explicado posteriormente
+            </p>
+            <div><img src="../images/nota4_27.png"></div>
+        </li>
+        <li>
+            <p>Desarrollar la cabecera parametrizada de la página, la cual constará de un título.
+            </p>
+            <div><img src="../images/nota4_28.png"></div>
+        </li>
+        <li>
+            <p>Realizar las importaciones respectivas. Definir el contenido del Layout, para esto se utilizan las
+                etiquetas correspondientes a los archivos trabajados con anterioridad.<br>
+                &lt;Header title="Listado de Estudiantes"/&gt;: Sirve para definir el título de la página.<br>
+                &lt;ListEstudiantes/&gt;: Contiene a la tabla con todos los registros presentes en la base de datos y al
+                botón que muestra el mensaje de alerta con el número de estudiantes que han sido registrados.<br>
+                &lt;React.Fragment&gt;: Un patrón común en React es que un componente devuelva múltiples elementos. Con
+                Fragment se puede agrupar una lista de elementos hijos sin agregar nodos adicionales al DOM.
+            </p>
+            <div><img src="../images/nota4_29.png"></div>
+        </li>
+        <li>
+            <p>Asegurarse que en el archivo “index.js” se encuentre referenciada la etiqueta &lt;Estudiante.Layout&gt;
+            </p>
+            <div><img src="../images/nota4_30.png"></div>
+        </li>
+    </ol>
+
+    <p>Se presenta el backend ingresando a localhost:8080, como se muestra:</p>
+    <div><img src="../images/nota4_31.png"></div>
+    <p>Al ingresar a localhost:3000, se muestra el resultado del frontend:</p>
+    <div><img src="../images/nota4_32.png"></div>
+    <p>Al presionar el botón, se muestra el número de estudiantes en la tabla:</p>
+    <div><img src="../images/nota4_33.png"></div>
+
+    <h4>Desarrollo web en la nube</h4>
+    <p>Para el desarrollo de esta sección se necesitarán realizar ciertos cambios, tanto al backend como al frontend.
+        Además, se utilizarán páginas que ofrecen servicio de hosting gratuito (Heroku y Netlify). Además, se alojará la
+        base de datos remota en db4free.net. A continuación, se mostrarán los pasos y cambios que se deben realizar para
+        lograr el despliegue remoto de nuestra página:
+    </p>
+
+    <ol>
+        <li>
+            <p>Registrarse en la página mostrada a continuación <a
+                    href="https://signup.heroku.com/">(https://signup.heroku.com/)</a>.
+            </p>
+            <div><img src="../images/nota4_34.png"></div>
+        </li>
+        <li>
+            <p>Establecer una contraseña para la cuenta.
+            </p>
+            <div><img src="../images/nota4_35.png"></div>
+        </li>
+        <li>
+            <p>Aceptar todos los términos de servicio condicionadas por la página.
+            </p>
+            <div><img src="../images/nota4_36.png"></div>
+        </li>
+        <li>
+            <p>Seleccionar la opción “Create a new app”.
+            </p>
+            <div><img src="../images/nota4_37.png"></div>
+        </li>
+        <li>
+            <p>Darle nombre a la aplicación a desarrollar y dar click en “Create app”.
+            </p>
+            <div><img src="../images/nota4_38.png"></div>
+        </li>
+        <li>
+            <p>Abrir la terminal y ubicarse en el directorio de la carpeta en la que se encuentre el backend e ingresar
+                el siguiente comando para instalar el cliente de Heroku: npm i -g heroku</p>
+        </li>
+        <li>
+            <p>Ingrese a la cuenta de Heroku desde la terminal de VSC, mediante el siguiente comando: heroku login</p>
+        </li>
+        <li>
+            <p>Se abrirá automáticamente la siguiente página de login, ingresar los respectivos datos pedidos por la
+                página:
+            </p>
+            <div><img src="../images/nota4_39.png"></div>
+        </li>
+        <li>
+            <p>
+                Ingresar las siguientes líneas para iniciar el repositorio vacío remoto en Heroku.<br>
+                <small>git init</small><br>
+                <small>heroku git:remote -a listastds</small><br>
+            </p>
+        </li>
+        <li>
+            <p>
+                Ejecutar los commandos ordinarios para subir archivos a un repositorio:<br>
+                <small>git add</small><br>
+                <small>git commit -am "make it better"</small><br>
+                <small>git push heroku master</small>
+            </p>
+        </li>
+        <li>
+            <p>Asegurarse de que en el archivo “index.js”, la siguiente línea tenga al operador lógico OR (||), como se
+                muestra en la siguiente figura:
+            </p>
+            <div><img src="../images/nota4_40.png"></div>
+        </li>
+        <li>
+            <p>Asegurarse de que en el archivo “package.js” se especifique que el archivo de inicio es el “index.js”.
+            </p>
+            <div><img src="../images/nota4_41.png"></div>
+            <p>Ahora nos enfocaremos en el alojamiento de la base de datos remota.</p>
+        </li>
+        <li>
+            <p>Ingresar a <a href="https://www.db4free.net/signup.php">https://www.db4free.net/signup.php</a>, y digitar
+                todos los datos requeridos por la página para el registro.
+            </p>
+            <div><img src="../images/nota4_42.png"></div>
+        </li>
+        <li>
+            <p>Revisar el correo enviado por db4free.net, entrar al link de confirmación e ingresar con su usuario y
+                contraseña.
+            </p>
+            <div><img src="../images/nota4_43.png"></div>
+        </li>
+        <li>
+            <p>Configurar la estructura de la tabla de la base de datos y guardar.
+            </p>
+            <div><img src="../images/nota4_44.png"></div>
+        </li>
+        <li>
+            <p>Ingresar cada uno de los registros que contendrá la tabla y presionar el botón “continuar” para ejecutar
+                los comandos MySQL.
+            </p>
+            <div><img src="../images/nota4_45.png"></div>
+            <p>Si el proceso ha sido realizado correctamente, se debería tener una tabla como la siguiente:
+            </p>
+            <div><img src="../images/nota4_46.png"></div>
+        </li>
+        <li>
+            <p>Se realizarán los siguientes cambios al archivo “databaseCon.js”:</p>
+            <ul>
+                <li>
+                    <p>El host ya no será “localhost”, será “db4free.net”.</p>
+                </li>
+                <li>
+                    <p>El usuario, contraseña y base de datos deben ser los registrados cuando se creó la cuenta en la
+                        página db4free.net.</p>
+                </li>
+            </ul>
+            <div><img src="../images/nota4_47.png"></div>
+        </li>
+        <li>
+            <p>Repetir el paso 10.<br>
+                Si es que todo se ha realizado correctamente, se deben mostrar los datos de nuestra tabla en la nube.
+            </p>
+            <div><img src="../images/nota4_48.png"></div>
+            <p>Desde este momento, lo único que falta es mostrar nuestro frontend. Para lograrlo, seguir los siguientes
+                pasos:</p>
+        </li>
+        <li>
+            <p>Asegurarse que en el archivo “ListEstudiantes.js” se esté obteniendo la información del backend desde la
+                página donde se encuentra actualmente.
+            </p>
+            <div><img src="../images/nota4_49.png"></div>
+        </li>
+        <li>
+            <p>Crear un nuevo repositorio público en su cuenta de GitHub.
+            </p>
+            <div><img src="../images/nota4_50.png"></div>
+        </li>
+        <li>
+            <p>Abrir la terminal en el directorio de la carpeta donde se encuentra el frontend.</p>
+        </li>
+        <li>
+            <p>Ejecutar en la terminal los comandos que la página ordena.
+            </p>
+            <div><img src="../images/nota4_51.png"></div>
+        </li>
+        <li>
+            <p>Registrarse con GitHub en Netlify (<a href="https://www.netlify.com/">https://www.netlify.com/</a>),
+                llenar los formularios y otorgarle todas las autorizaciones requeridas.
+            </p>
+            <div><img src="../images/nota4_52.png"></div>
+        </li>
+        <li>
+            <p>Presionar el botón “New site from Git”.
+            </p>
+            <div><img src="../images/nota4_53.png"></div>
+        </li>
+        <li>
+            <p>Seguir los pasos de para obtener el sitio en Netlify.
+            </p>
+            <div><img src="../images/nota4_54.png"></div>
+            <p>Cuando se hayan finalizado los tres pasos, se debe mostrar una previsualización de la página en progreso.
+            </p>
+            <div><img src="../images/nota4_55.png"></div>
+        </li>
+        <li>
+            <p>Para concluir con el despliegue, se debe ejecutar la siguiente línea de comando: npm run build. Luego,
+                subir los cambios a GitHub mediante los comandos a mencionados.
+            </p>
+        </li>
+        <li>
+            <p>Si todo ha sido realizado correctamente, la página de previsualización debe haber cargado el link de su
+                página remota.
+            </p>
+            <div><img src="../images/nota4_56.png"></div>
+            <p>Al entrar al link de la página creada, se debe mostrar su frontend con los datos registrados en la base de datos.</p>
+            <div><img src="../images/nota4_57.png"></div>
+            <p>Al presionar el botón, se comprueba la funcionalidad de la página:</p>
+            <div><img src="../images/nota4_58.png"></div>
+        </li>
+    </ol>
 </body>
 
 </html>
