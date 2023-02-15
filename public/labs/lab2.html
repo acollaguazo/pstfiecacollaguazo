@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="public/stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Laboratorio 2</title>
+</head>
+
+<body>
+    <h2>Laboratorio 1</h2>
+    <h2>Configuración de una red inalámbrica</h2>
+    <h4>Objetivo:</h4>
+    <ul>
+        <li>
+            <p>Configurar el direccionamiento IPv4 para comunicación entre subredes a través de la técnica de subnetting
+                con VLMS.</p>
+        </li>
+        <li>
+            <p>Configurar enrutamiento para comunicación entre subredes a través de la declaración de rutas estáticas en
+                el enrutador.</p>
+        </li>
+    </ul>
+    <h5>Duración:</h5>
+    <p>Ciento veinte (120) minutos.</p>
+    <h5>Materiales y Herramientas:</h5>
+    <p>Software Packet Tracer</p>
+    <h5>Introducción:</h5>
+    <p>El direccionamiento es una función clave de los protocolos de capa de red que permite la comunicación de datos
+        entre hosts, independientemente de si los hosts se encuentran en la misma red o en redes diferentes. El diseño,
+        la implementación y la administración de un plan de direccionamiento IP eficaz asegura que las redes puedan
+        operar eficientemente.
+    </p>
+    <h5>Investigación</h5>
+    <h6>Pregunta 1: ¿Cuál es la diferencia entre una IP pública y una IP privada?, indique sus rangos.</h6>
+    <h6>Pregunta 2: Describa brevemente cómo está dividida una dirección IPv6.</h6>
+    <h5>Topología</h5>
+    <div class="text-center"><img src="../images/lab2_1.png"></div>
+    <h5>Procedimiento</h5>
+    <p>
+        <span class="h6">Paso 1: </span>Direccionamiento de la red
+    </p>
+    <ol>
+        <li>
+            <p>Determine la cantidad de subredes en la topología.</p>
+        </li>
+        <li>
+            <p>Diseñar el esquema de direccionamiento VLSM de acuerdo con la información de la topología.</p>
+        </li>
+        <li>
+            <p>Registre los datos en la siguiente tabla.</p>
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Dirección de subred</th>
+                    <th>Prefijo de subred</th>
+                    <th>Máscara de subred</th>
+                    <th>1er host utilizable</th>
+                    <th>Último host utilizable</th>
+                    <th>Broadcast</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </li>
+        <li>
+            <p>Construya la tabla de direccionamiento de acuerdo con lo siguiente:</p>
+            <ol>
+                <li>
+                    <p>Asigne la primera dirección IP utilizable a la interfaz LAN del enrutador.</p>
+                </li>
+                <li>
+                    <p>Asigne la última dirección IP utilizable a los dispositivos IOT y al servidor.</p>
+                </li>
+                <li>
+                    <p>Asigne la penúltima dirección IP utilizable a cada PC.</p>
+                </li>
+                <li>
+                    <p>En el enlace serial asigne la primera y segunda IP utilizable a TELCO_UIO y TELCO_CUE
+                        respectivamente.</p>
+                </li>
+            </ol>
+            <table>
+                <tr>
+                    <th>Dispositivo</th>
+                    <th>Interfaz</th>
+                    <th>Dirección IP</th>
+                    <th>Máscara de subred</th>
+                    <th>Puerta de enlace predeterminada</th>
+                </tr>
+                <tr>
+                    <th>TELCO_UIO</th>
+                    <td>Fa0/0</td>
+                    <td></td>
+                    <td></td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>Fa0/1</td>
+                    <td></td>
+                    <td></td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>S0/0/0<br><span>DCE</span></td>
+                    <td></td>
+                    <td></td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <th>TELCO_CUE</th>
+                    <td>Fa0/0</td>
+                    <td></td>
+                    <td></td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>Fa0/1</td>
+                    <td></td>
+                    <td></td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>S0/0/0</td>
+                    <td></td>
+                    <td></td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <th>PC0</th>
+                    <td>NIC</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>IoT0</th>
+                    <td>NIC</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>PC1</th>
+                    <td>NIC</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>IoT1</th>
+                    <td>NIC</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>PC2</th>
+                    <td>NIC</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>IoT2</th>
+                    <td>NIC</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>PC3</th>
+                    <td>NIC</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Server0</th>
+                    <td>NIC</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 2: </span>Configuración de los dispositivos finales
+    </p>
+    <ol>
+        <li>
+            <p>Configure las direcciones IP de las computadoras y del servidor de acuerdo con la tabla de
+                direccionamiento.<br>
+                Dé clic en la PC y luego en la pestaña <span class="h6">Desktop</span> y escoja la opción <span
+                    class="h6">IP Configuration</span>, observará una
+                ventana donde deberá llenar los parámetros correspondientes.
+            </p>
+            <div>
+                <img src="../images/lab_danger.png">
+                <small>Los parámetros de direccionamiento IP, deben de ser configurados de acuerdo con la tabla de
+                    direccionamiento. Este procedimiento debe realizarse en todas las PC.
+                </small>
+            </div>
+            <div class="text-center"><img src="../images/lab2_2.png"></div>
+        </li>
+        <li>
+            <p>Configure las direcciones IP de los dispositivos IoT de acuerdo con la tabla de direccionamiento.<br>
+                Dé clic en el dispositivo IoT, luego en la pestaña <span class="h6">Config</span> seleccione la
+                categoría <span class="h6">FastEthernet0</span>, deberá
+                llenar los parámetros de la dirección IP y su máscara.
+            </p>
+            <div>
+                <img src="../images/lab_danger.png">
+                <small>Los parámetros de direccionamiento IP, deben de ser configurados de acuerdo con la tabla de
+                    direccionamiento. Este procedimiento debe realizarse en todos los dispositivos IoT.
+                </small>
+            </div>
+            <div class="text-center"><img src="../images/lab2_3.png"></div>
+        </li>
+        <li>
+            <p>Configure las direcciones IP del Gateway en los dispositivos IoT y la IP del servidor remoto junto con
+                sus credenciales y seleccione Connect.<br>
+                En la misma pestaña <span class="h6">Config</span> seleccione la categoría <span
+                    class="h6">Settings</span>.
+            </p>
+            <div class="text-center"><img src="../images/lab2_4.png"></div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 3: </span>Configuración de los enrutadores
+    </p>
+    <ol>
+        <li>
+            <p>Configure las direcciones IP de los enrutadores de acuerdo con la tabla de direccionamiento.<br>
+                Dé clic en el enrutador, luego en la pestaña <span class="h6">Config</span> seleccione la categoría
+                <span class="h6">Serial0/0/0</span>, deberá llenar los parámetros de la dirección IP y su máscara.
+            </p>
+            <div>
+                <img src="../images/lab_danger.png">
+                <small>Para el router TELCO_UIO deberá seleccionar un Clock Rate igual a 64000, mientras que para el
+                    otro enrutador debe dejarlo como Not Set.
+                </small>
+            </div>
+            <div class="text-center"><img src="../images/lab2_5.png"></div>
+        </li>
+        <li>
+            <p>En la misma pestaña <span class="h6">Config</span> seleccione la categoría <span
+                    class="h6">Static</span>, deberá agregar las direcciones IP de las
+                subredes que no están conectadas directamente junto con su máscara y el campo next hop hace referencia a
+                la IP del siguiente router.
+            </p>
+        </li>
+        <div class="text-center"><img src="../images/lab2_6.png"></div>
+    </ol>
+
+    <h6>Pregunta 3: Investigue al menos 2 tipos de enrutamiento dinámico y explíquelos detalladamente.</h6>
+    <p>
+        <span class="h6">Paso 4: </span>Pruebas de conexión
+    </p>
+    <ol>
+        <li>
+            <p>Probar conectividad desde PC0 hacia las demás PCs.</p>
+        </li>
+        <li>
+            <p>Ingresar a la opción IoT Monitor dentro de la pestaña <span class="h6">Desktop</span> del servidor,
+                verificar que aparecen todos los dispositivos IoT y los puede controlar.</p>
+        </li>
+    </ol>
+
+    <h2>RETO</h2>
+    <p>Basado en la topología de la práctica, luego de algunos años se establece una nueva sucursal en la ciudad de
+        Guayaquil, por lo que se le solicita agregar un nuevo enrutador con el nombre de TELCO_GYE que estará conectado
+        a ambos enrutadores de manera Serial, este nuevo enrutador sólo va a tener una subred la cual va a contener un
+        único dispositivo que será el mismo servidor, es decir que ya no estará en la ciudad de Cuenca sino en
+        Guayaquil.
+    </p>
+    <div class="text-center"><img src="../images/lab2_7.png"></div>
+    <h6>Pregunta 6: ¿Es necesario volver a generar todas las subredes?, ¿Por qué?</h6>
+    <h6>Pregunta 7: Indique qué cambios tuvo que realizar para que haya conectividad con esta nueva subred y presente
+        una imagen del IoT Monitor como evidencia de que sí aparecen los dispositivos IoT.</h6>
+</body>
+
+</html>
