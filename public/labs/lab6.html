@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="public/stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Laboratorio 6</title>
+</head>
+
+<body>
+    <h2>Laboratorio 6</h2>
+    <h2>Desarrollo de una aplicación Web (Servidor-Cliente)</h2>
+    <h4>Objetivo:</h4>
+    <ul>
+        <li>
+            <p>Estructurar correctamente un código fuente del desarrollo de una página Web para mantener un orden y
+                depuración de código más eficiente.
+            </p>
+        </li>
+        <li>
+            <p>Generar un servidor web mediante el framework REACT para poder programar la parte de diseño de una
+                aplicación Web.
+            </p>
+        </li>
+    </ul>
+    <h5>Duración:</h5>
+    <p>Ciento veinte (120) minutos.</p>
+    <h5>Materiales y Herramientas:</h5>
+    <ol>
+        <li>
+            <p>Un navegador web</p>
+        </li>
+        <li>
+            <p>Software editor de texto (Visual Studio Code)</p>
+        </li>
+    </ol>
+    <h5>Investigación</h5>
+    <h6>Pregunta 1: Mencione y describa brevemente OTRO framework del lado del cliente como REACT</h6>
+
+    <h5>Procedimiento</h5>
+    <p>
+        <span class="h6">Paso 1: </span>Creación del servidor Web estructurado
+    </p>
+    <ol>
+        <li>
+            <p>
+                Crear una carpeta nueva con el nombre de “laboratorio6-7”
+            </p>
+        </li>
+        <li>
+            <p>
+                Abrir la carpeta en VS Code, dentro de la carpeta creada crear otra carpeta con el nombre “backend”
+            </p>
+        </li>
+        <li>
+            <p>
+                Abrir un terminal e ingresar a la carpeta backend
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            cd ./backend
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Inicializar el proyecto e instalar los módulos necesarios
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            npm init --y
+                            npm install express cors
+                            npm install nodemon -D
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>Dentro de la carpeta backend crear la carpeta “src”</p>
+        </li>
+        <li>
+            <p>
+                Dentro de la carpeta “src” crear los archivos “index.js” y “app.js”, estos archivos permitirán iniciar
+                el servidor y configurar express respectivamente.
+            </p>
+        </li>
+        <li>
+            <p>
+                g) Dentro de la carpeta “src” crear las carpetas:
+            </p>
+            <ol>
+                <li>
+                    <p>controllers: Aquí se almacenarán los archivos que contengan las funciones del servidor al recibir
+                        alguna petición HTTP</p>
+                </li>
+                <li>
+                    <p>
+                        routes: Se definen las URLs del servidor
+                    </p>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <p>
+                Editar el archivo “package.json”, reemplazar la línea de “test” (línea 7) por
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            "dev": "nodemon ./src/index.js"
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Dentro de la carpeta “backend” crear el archivo “nodemon.json” con el contenido indicado a continuación;
+                esto se realiza con el fin de que la herramienta “nodemon” no reinicie el servidor cuando detecte
+                cambios en los archivos .json
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            {
+                                "ignore": ["*.json"] 
+                            }                            
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 2: </span>Configuración básica del servidor Web
+    </p>
+    <ol>
+        <li>
+            <p>
+                Editar el archivo “app.js” con el siguiente código:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const express = require('express');
+                            const cors = require('cors');
+                            const server = express();
+
+                            //Configuraciones
+                            server.set('port',8080);
+                            server.set('host','localhost');
+
+                            //Middlewares
+                            server.use(cors());
+                            server.use(express.json());
+
+                            //Rutas
+                            server.get('/estudiantes', (req, res) => {
+                            res.send('&lt;h1&gt;Lista de estudiantes&lt;/h1&gt;')
+                            })
+
+                            module.exports = server;                    
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Editar el archivo “index.js” con el siguiente código:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const app = require('./app');
+                            const port = app.get('port');
+                            const host = app.get('host');
+
+                            app.listen(port, () => {
+                                console.log(`Iniciar Página web con http://${host}:${port}`);
+                            })                  
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Ejecutar el servidor Web.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            npm run dev            
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 3: </span>Creación de rutas
+    </p>
+    <ol>
+        <li>
+            <p>
+                Dentro de la carpeta “routes” crear el archivo “estudiantes.js” con el siguiente contenido
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const {Router}=require('express');
+                            const router = Router();
+
+                            router.route('/')
+                                .get((req,res)=>res.send('&lt;h1&gt;Lista de estudiantes&lt;/h1&gt;'))
+                                .post()
+
+                            router.route('/:id')
+                                .get()
+                                .put()
+                                .delete()
+
+                            module.exports = router  
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Para que el archivo “app.js” utilice las rutas que hemos creado en el paso anterior debemos borrar la
+                función get (línea 13) y colocar con el siguiente código:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            server.use('/estudiantes', require('./routes/estudiantes'));
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Edite las funciones de petición HTTP con el siguiente código:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            router.route('/')
+                                .get((req,res)=>res.json({estudiantes:[]}))
+                                .post((req,res)=>res.json({mensaje:'Estudiante agregado'}));
+
+                            router.route('/:id')
+                                .get((req,res)=>res.json({mensaje:'Estudiante 1'}))
+                                .put((req,res)=>res.json({mensaje:'Estudiante actualizado'}))
+                                .delete((req,res)=>res.json({mensaje:'Estudiante eliminado'}));
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_idea.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Si las funciones para petición HTTP sólo van a devolver un objeto JSON, en lugar de utilizar la
+                        función “send(…)”, puede utilizar la función “json(…)”
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Dentro de la carpeta “controllers” crear el archivo “estudiantesControl.js” con el siguiente contenido:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const estudiantesControl = {};
+
+                            estudiantesControl.getEstudiantes = (req,res)=>res.json({estudiantes:[]});
+                            estudiantesControl.postEstudiante = (req,res)=>res.json({mensaje:'Estudiante agregado'});
+                            estudiantesControl.getEstudiante = (req,res)=>res.json({mensaje:'Estudiante 1'});
+                            estudiantesControl.putEstudiante = (req,res)=>res.json({mensaje:'Estudiante actualizado'});
+                            estudiantesControl.deleteEstudiante = (req,res)=>res.json({mensaje:'Estudiante eliminado'});
+
+                            module.exports = estudiantesControl;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Para que el archivo “estudiantes.js” pueda utilizar las funciones creadas en el archivo
+                “estudiantesControl.js” será necesario importarlo o en su defecto sólo importar las funciones de la
+                siguiente manera:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const {Router}=require('express');
+                            const router = Router();
+
+                            const {getEstudiantes,postEstudiante,getEstudiante,putEstudiante,deleteEstudiante} = require('../controllers/estudiantesControl');
+
+                            router.route('/')
+                                .get(getEstudiantes)
+                                .post(postEstudiante);
+
+                            router.route('/:id')
+                                .get(getEstudiante)
+                                .put(putEstudiante)
+                                .delete(deleteEstudiante);
+
+                            module.exports = router
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 4: </span>Almacenamiento de información en archivos
+    </p>
+    <ol>
+        <li>
+            <p>
+                Dentro de la carpeta “controllers” crear el archivo “database.js” con el siguiente contenido:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const fs = require('fs');
+                            const db = {};
+
+                            let PST = {};
+                            function init() {
+                                try {
+                                    const json_text_PST = fs.readFileSync('./src/pstDatabase.json', 'utf-8')
+                                    PST = JSON.parse(json_text_PST)
+                                } catch (e) {
+                                    PST = {
+                                        estudiantes: [],
+                                        profesores: {
+                                            teoria: { nombre: "Msig. Adriana Collaguazo", edad: 20 },
+                                            practica: { nombre: "Ing. Christopher Vaccaro", edad: 26 }
+                                        }
+                                    }
+                                    fs.writeFileSync('./src/pstDatabase.json', JSON.stringify(PST), 'utf-8');
+                                }
+
+                                db.teoria = PST.profesores.teoria;
+                                db.practica = PST.profesores.practica;
+                                db.profesores = PST.profesores;
+                                db.estudiantes = PST.estudiantes;
+                            }
+                            function updateDB(){
+                                fs.writeFileSync('./src/pstDatabase.json', JSON.stringify(PST), 'utf-8');
+                            }
+
+                            db.init = init;
+                            db.updateDB = updateDB;
+
+                            module.exports = db;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Iniciar el archivo “database.json” en el archivo “index.js” con la función “db.init()”
+            </p>
+        </li>
+        <li>
+            <p>
+                Una vez realizado creado el archivo .json, se procede a modificar las funciones del archivo
+                “estudiantesControl” con el siguiente código:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const db = require('./database');
+                            const estudiantesControl = {};
+
+                            estudiantesControl.getEstudiantes = (req,res)=>{
+                                res.json(db.estudiantes);
+                            }
+                            estudiantesControl.postEstudiante = (req,res)=>{
+                                const {id, nombre,apellido} = req.body;
+                                if(!id || !nombre || !apellido){
+                                    res.status(400).send("Datos incompletos {id, nombre, apellido}");
+                                    return;
+                                }
+                                const estudiante = {
+                                    id,
+                                    nombre,
+                                    apellido
+                                }
+                                db.estudiantes.push(estudiante);
+                                db.updateDB();
+                                res.send('Estudiante ingresado con éxito');
+                            }
+                            estudiantesControl.getEstudiante = (req,res)=>{
+                                const estudiante = db.estudiantes.find(
+                                    (est)=>est.id == req.params.id
+                                );
+
+                                res.json(estudiante);
+                            }
+                            estudiantesControl.putEstudiante = (req,res)=>res.json({mensaje:'Estudiante actualizado'});
+                            estudiantesControl.deleteEstudiante = (req,res)=>res.json({mensaje:'Estudiante eliminado'});
+
+                            module.exports = estudiantesControl;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <h6>Pregunta 2: Edite las funciones “putEstudiante” y “deleteEstudiante” que permita editar y borrar un estudiante
+        respectivamente.</h6>
+    <h6>Pregunta 3: Añada el código necesario para validar estudiantes repetidos en base a su ID dentro de la función
+        “postEstudiante”.</h6>
+
+    <p>
+        <span class="h6">Paso 5: </span>Creación de archivos para diseño de Frontend
+    </p>
+    <ol>
+        <li>
+            <p>
+                Abrir un nuevo terminal
+            </p>
+        </li>
+        <li>
+            <p>
+                Crear los archivos y carpetas necesarios con el comando:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            npx create-react-app frontend
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Eliminar archivos innecesarios
+            </p>
+            <ol>
+                <li>
+                    <p>App.test.js</p>
+                </li>
+                <li>
+                    <p>logo.svg</p>
+                </li>
+                <li>
+                    <p>reportWebVitals.js</p>
+                </li>
+                <li>
+                    <p>setupTests.js</p>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <p>
+                Editar contenidos de ciertos archivos
+            </p>
+            <ol>
+                <li>
+                    <p>En index.js eliminar las líneas relacionas a serviceWorker</p>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <p>
+                En el App.js dejar solo un “Hola mundo” en el div
+            </p>
+        </li>
+        <li>
+            <p>Borrar los contenidos de todos los archivos .css</p>
+        </li>
+        <li>
+            <p>Ejecutar el Frontend con el comando “npm start” desde el terminal.</p>
+        </li>
+        <li>
+            <p>Mientras se configuan los archivos necesarios; dentro de la carpeta components (crearla sino existe),
+                deberá crear los siguientes archivos:
+            </p>
+            <ol>
+                <li>
+                    <p>CreateEstudiante.js</p>
+                </li>
+                <li>
+                    <p>ShowEstudiantes.js</p>
+                </li>
+                <li>
+                    <p>ShowProfesores.js</p>
+                </li>
+                <li>
+                    <p>Navigation.js</p>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <p>
+                Instalar la extensión par VSCode “ES7 React/Redux/GraphQL/React-Native snippets”.
+            </p>
+        </li>
+        <li>
+            <p>
+                Editar cada archivo creado en el literl h) colocando “rcc” seguido de la tecla TAB
+            </p>
+        </li>
+    </ol>
+</body>
+
+</html>
