@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="public/stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Laboratorio 4</title>
+</head>
+
+<body>
+    <h2>Laboratorio 4</h2>
+    <h2>Desarrollo de una aplicación Web (Servidor)</h2>
+    <h4>Objetivo:</h4>
+    <ul>
+        <li>
+            <p>Conocer el entorno de desarrollo Visual Studio Code para programar y diseñar una aplicación web.
+            </p>
+        </li>
+        <li>
+            <p>Reconocer el funcionamiento y componentes de un sistema web a través de la implementación con
+                programación en JavaScript.
+            </p>
+        </li>
+        <li>
+            <p>Generar un servidor web mediante el framework EXPRESS.</p>
+        </li>
+    </ul>
+    <h5>Duración:</h5>
+    <p>Ciento veinte (120) minutos.</p>
+    <h5>Materiales y Herramientas:</h5>
+    <ol>
+        <li>
+            <p>Un navegador web</p>
+        </li>
+        <li>
+            <p>Software editor de texto (Visual Studio Code)</p>
+        </li>
+    </ol>
+    <h5>Investigación</h5>
+    <h6>Pregunta 1: ¿Qué es y para qué sirve JavaScript?</h6>
+    <h6>Pregunta 2: ¿Qué es un Framework?</h6>
+    <h6>Pregunta 3: ¿Qué es un IDE de programación? y ¿En qué se diferencia de un editor de texto?</h6>
+
+    <h5>Procedimiento</h5>
+    <p>
+        <span class="h6">Paso 1: </span>Instalación de Visual Studio Code
+    </p>
+    <ol>
+        <li>
+            <p>Instalar Visual Studio Code <a
+                    href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a>
+            </p>
+            <div class="text-center"><img src="../images/lab4_1.png"></div>
+        </li>
+        <li>
+            <p>
+                Marcar las casillas “Abrir con Code”
+            </p>
+            <div class="text-center"><img src="../images/lab4_2.png"></div>
+        </li>
+        <li>
+            <p>Una vez instalado VS Code, ejecutar el software e instalar las extensiones “Visual Studio IntelliCode” y
+                “vscode-icons”.
+            </p>
+            <div class="text-center"><img src="../images/lab4_3.png"></div>
+            <div class="text-center"><img src="../images/lab4_4.png"></div>
+        </li>
+    </ol>
+    <h6>Pregunta 4: Investigue 3 extensiones de VS Code para el desarrollo de aplicaciones web</h6>
+
+    <p>
+        <span class="h6">Paso 2: </span>Instalación de Node.js
+    </p>
+    <ol>
+        <li>
+            <p>Instalar la versión recomendada de Node.js <a href="https://nodejs.org/es/">https://nodejs.org/es/</a>
+            </p>
+            <div class="text-center"><img src="../images/lab4_5.png"></div>
+        </li>
+        <li>
+            <p>Abrir un terminal en VS Code y ejecutar los siguientes comandos</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                        node -v
+                        npm -v
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="text-center"><img src="../images/lab4_6.png"></div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 3: </span>Programación en JavaScript
+    </p>
+    <ol>
+        <li>
+            <p>Crear un carpeta con el nombre “lab4” y abrirla en VS Code desde el explorador.</p>
+            <div class="text-center"><img src="../images/lab4_7.png"></div>
+        </li>
+        <li>
+            <p>Crear el archivo demo.js</p>
+            <div class="text-center"><img src="../images/lab4_8.png"></div>
+        </li>
+        <li>
+            <p>Editar el archivo con el siguiente contenido y guardarlo.</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                        console.log("Mi primer código hecho por SUNOMBRE")</pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>Ejecute el archivo desde el terminal de VS Code.</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                        node demo.js</pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>Eliminar la línea anterior y editar el archivo para que contenga el siguiente código:</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                        function imprimir(nombre){
+                            console.log("Mi primer código en JS por ",nombre);
+                        }
+                        exports.imprimir = imprimir;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>Crear un nuevo archivo con el nombre app.js con el siguiente código</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                        const demo = require('./demo.js')
+                        demo.imprimir("SUNOMBRE")
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>Ejecute el archivo app.js desde el terminal de VS Code.</p>
+        </li>
+        <li>
+            <p>En el archivo demo.js agregar la siguiente función</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                        function imprimirSalto(nombre){
+                            console.log("Mi primer código en JS por %s\r\n",nombre);
+                        }                        
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>Eliminar el comando exports, luego al inicio del archivo declarar una variable constante de tipo objeto
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                        const Demo = {}     
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>Al final del archivo asignar las funciones al objeto Demo y finalmente exportarlo</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            Demo.print = imprimir
+                            Demo.println = imprimirSalto
+                            
+                            module.exports = Demo                                
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <h6>Pregunta 5: Investigue la diferencia entre VAR, LET y CONST a nivel de alcance, redeclaración y
+                reasignación.</h6>
+        </li>
+        <li>
+            <p>Editar el archivo app.js para llamar a los funciones del archivo demo.js y ejecutarlo</p>
+        </li>
+        <li>
+            <p>Crear un nuevo archivo con el nombre de file.js con el siguiente código</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            fs.writeFile('archivo.txt','Archivo Vacío',function(err){
+                                if (err) {
+                                    console.log(err)
+                                } else {
+                                    console.log('Archivo creado')
+                                }
+                            })
+                            console.log('Última línea')                                                           
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <h6>Pregunta 6: Al ejecutar el archivo file.js ¿En qué orden se muestran los mensajes de consola? Explique
+                dicho comportamiento.</h6>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 4: </span>Creación de un servidor web
+    </p>
+    <ol>
+        <li>
+            <p>Crear un nuevo archivo con el nombre index.js</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const http = require("http");
+
+                            const handler = function(req,res){
+                                res.write("&lt;h1&gt;Hola mundo&lt;/h1&gt;");
+                                res.end();
+                            }
+                            const server = http.createServer(handler);
+                            server.listen(8080,function(){
+                                console.log("Iniciar Página web con http://localhost:8080");
+                            });                                                         
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>Cada que se realiza un cambio en el servidor web, se debe detener el proceso con CTRL+C (en
+                        el terminal) y volver a ejecutar el código.
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>Ejecutar el archivo desde consola y abrir un navegador web con la dirección localhost:8080</p>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 5: </span>Instalación de módulos externos
+    </p>
+    <ol>
+        <li>
+            <p>Ejecutar en el terminal npm init --y para crear el archivo package.json</p>
+            <h6>Pregunta 7: ¿Cuál es el la función principal del archivo package.json?</h6>
+        </li>
+        <li>
+            <p>Instalar el módulo colors con el comando npm install colors</p>
+        </li>
+        <li>
+            <p>Edite el archivo del paso 4 importando el módulo colors de la misma manera en que se importó el módulo
+                http</p>
+        </li>
+        <li>
+            <p>Edite la función callback de la función listen del paso 4 con la siguiente línea</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            console.log("Iniciar Página web con http://localhost:8080".cyan);
+                        </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_idea.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>Para mayor información del módulo colors revise la documentación en <a
+                            href="https://www.npmjs.com/package/colors">https://www.npmjs.com/package/colors</a>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 6: </span>Creación de un servidor web con Express
+    </p>
+    <ol>
+        <li>
+            <p>Instalar el módulo express con el gestor de paquetes npm</p>
+        </li>
+        <li>
+            <p>Modificar el archivo index.js con el siguiente código</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const colors = require('colors');
+                            const express = require('express');
+
+                            const server = express();
+
+                            server.get('/',function (req,res) {
+                                res.send("&lt;h1&gt;Hola mundo con Express&lt;/h1&gt;");
+                            });
+                            server.listen(8080,function(){
+                                console.log("Iniciar Página web con http://localhost:8080".cyan);
+                            });
+                        </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_idea.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>Para evitar estar deteniendo el código del servidor cada que se realiza un cambio, se puede
+                        instalar el módulo nodemon, el cual se encarga de reiniciar el servidor con los nuevos
+                        cambios.<br>
+                        Para ejecutar el servidor web con nodemon en lugar de ejecutar node index.js, se debe ejecutar
+                        la instrucción npx nodemon index.js
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+</body>
+
+</html>
