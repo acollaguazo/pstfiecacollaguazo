@@ -63,7 +63,552 @@
         </li>
     </ul>
     <h6>MAPS</h6>
-    <p></p>
+    <p>
+        Permite a los usuarios visualizar el mundo real, por medio de mapas estáticos o dinámicos, que pueden ser
+        personalizados e incorporados a sitios o aplicaciones.
+    </p>
+    <ul>
+        <li>
+            <p>
+                <span class="text-decoration-underline">SDK de Maps para Android</span>: permite agregar mapas con base
+                en los datos de Google Maps a una aplicación para Android.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">SDK de Maps para iOS</span>: permite agregar mapas con base en
+                los datos de Google Maps a una aplicación para iOS.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API JavaScript de Maps</span>: permite agregar mapas
+                interactivos y personalizarlos con propio contenido e imágenes para exhibición en páginas de la web y
+                dispositivos móviles.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API Static de Maps</span>: permite incorporar una imagen
+                estática de Google Maps a un sitio web, sin la necesidad de usar JavaScript o cualquier cargamento
+                dinámico de la página.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API Street View</span>: permite incorporar un panorama o una
+                miniatura estática (no interactiva) de Street View a una página Web, sin el uso de JavaScript.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">URLs de Maps</span>: permite crear una URL universal entre
+                plataformas, que posibilita abrir Google Maps y realizar búsquedas, teniendo acceso a rutas, mapas e
+                imágenes panorámicas.
+            </p>
+        </li>
+    </ul>
+    <h6>ROUTES</h6>
+    <p>Ayuda a los usuarios a encontrar el mejor trayecto hasta su destino, con la sugerencia de rutas y actualizaciones
+        de tránsito en tiempo real. Además, también permite crear itinerarios hasta de 25 puntos de referencia.
+    </p>
+    <ul>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API Directions</span>: permite proporcionar rutas de transporte
+                público, bicicleta, auto y a pie.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API Distance Matrix</span>: proporciona la distancia y el tiempo
+                de viaje entre los puntos de origen y de destino de una ruta recomendada.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API Roads</span>: posibilita crear itinerarios precisos,
+                determinando el trayecto a ser recorrido, además de proporcionar datos al respecto de esas rutas, como
+                el límite de velocidad.
+            </p>
+        </li>
+    </ul>
+    <h6>PLACES</h6>
+    <p>
+        Places ayuda a los usuarios a conocer y explorar el mundo a su alrededor. Con datos de millones de lugares,
+        posibilita encontrar locales específicos, usando números de teléfono, direcciones o nombres de
+        establecimientos.<br>
+        Es una óptima forma de facilitar a los consumidores a encontrar una empresa, teniendo acceso a informaciones
+        detalladas sobre el negocio, como nombre del local, dirección, evaluaciones y datos de contacto.
+    </p>
+    <ul>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API Places</span>: exhibe información actualizada sobre millones
+                de locales usando solicitudes HTTP. Los locales son definidos dentro de esta API como establecimientos,
+                localizaciones geográficas o puntos de interés.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API Geocoding</span>: permite convertir direcciones en
+                coordenadas geográficas o viceversa.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API Geolocation</span>: permite encontrar la localización de un
+                dispositivo con base en datos proporcionados por torres de celular y puntos de Wifi.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API Time Zone</span>: permite ver la zona horaria de una
+                coordenada específica de latitud y longitud.
+            </p>
+        </li>
+        <li>
+            <p>
+                <span class="text-decoration-underline">API Elevation</span>: proporciona datos de elevación de
+                cualquier punto del mundo, incluyendo la profundidad, como el fondo del océano (que devuelve valores
+                negativos).
+            </p>
+        </li>
+    </ul>
+
+    <h5>Investigación</h5>
+    <h6>Pregunta 1: Mencione al menos 5 APIs de Google diferentes a la de Maps y explique cada una de ellas.</h6>
+    <h6>Pregunta 2: Escoja una de las APIs de la pregunta anterior y explique la implementación de alguna función de
+        dicha API.</h6>
+
+    <h5>Procedimiento</h5>
+    <p>
+        <span class="h6">Paso 1: </span>Creación del proyecto
+    </p>
+    <ol>
+        <li>
+            <p>
+                Crear un nuevo proyecto con el nombre Lab13TLM, el Activity será vacío y con versión mínima para
+                Jelly Bean.
+            </p>
+            <div class="text-center"><img src="../images/lab13_1.png"></div>
+        </li>
+        <li>
+            <p>
+                Agregar un Activity nuevo de tipo Maps en la sección de Google.
+            </p>
+            <div class="text-center"><img src="../images/lab13_2.png"></div>
+        </li>
+        <li>
+            <p>
+                En la nueva ventana que se abre, dejar los valores por defecto y dar en Finish.
+            </p>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 2: </span>Crear claves de Google Maps y habilitar APIs
+    </p>
+    <ol>
+        <li>
+            <p>
+                Abrir el enlace <a
+                    href="https://console.developers.google.com/">https://console.developers.google.com/</a> en un
+                navegador web e ingresar con sus credenciales de una cuenta de Google (Gmail).
+            </p>
+        </li>
+        <li>
+            <p>
+                Crear un nuevo proyecto, de preferencia crearlo con el mismo nombre del proyecto de Android Studio y en
+                la sección de Ubicación dejar como “Ninguna organización”.
+            </p>
+            <div class="text-center"><img src="../images/lab13_3.png"></div>
+            <div class="text-center"><img src="../images/lab13_4.png"></div>
+        </li>
+        <li>
+            <p>
+                Seleccionar la opción Credenciales en el panel lateral izquierdo.
+            </p>
+            <div class="text-center"><img src="../images/lab13_5.png"></div>
+        </li>
+        <li>
+            <p>
+                Dar clic en “CREAR CREDENCIALES” y luego en “Clave de API”
+            </p>
+            <div class="text-center"><img src="../images/lab13_6.png"></div>
+        </li>
+        <li>
+            <p>
+                Copiar la clave creada y colocarla en el proyecto de Android Studio, en el archivo google_maps_api.xml,
+                casi al final del archivo donde dice YOUR_KEY_HERE.
+            </p>
+            <div class="text-center"><img src="../images/lab13_7.png"></div>
+            <div class="text-center"><img src="../images/lab13_8.png"></div>
+        </li>
+        <li>
+            <p>
+                Volver al navegador web y dar clic en RESTRINGIR CLAVE
+            </p>
+            <div class="text-center"><img src="../images/lab13_9.png"></div>
+        </li>
+        <li>
+            <p>
+                En caso de haber cerrado la ventana del literal anterior, puede dirigirse nuevamente a la sección de
+                credenciales y dar clic en el botón para editar la clave API.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        En caso de haber cerrado la ventana, puede dirigirse nuevamente a la sección de credenciales y
+                        dar clic en el botón para editar la clave API.
+                        <div class="text-center"><img src="../images/lab13_10.png"></div>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                En el segmento de Restricciones de aplicación, seleccionar la opción Aplicaciones de Android e ingresar
+                el nombre del paquete y la huella digital; ambos valores los encontrará comentados en el mismo archivo
+                XML donde colocó el API KEY del literal e).
+            </p>
+            <div class="text-center"><img src="../images/lab13_11.png"></div>
+        </li>
+        <li>
+            <p>
+                Dar clic en LISTO y más abajo clic en GUARDAR.
+            </p>
+        </li>
+        <li>
+            <p>
+                Seleccionar la opción Panel de Control en el menú lateral y luego clic en ENABLE APIS AND SERVICES.
+            </p>
+            <div class="text-center"><img src="../images/lab13_12.png"></div>
+        </li>
+        <li>
+            <p>
+                Dar clic en VER TODAS (17) del grupo de Maps.
+            </p>
+            <div class="text-center"><img src="../images/lab13_13.png"></div>
+        </li>
+        <li>
+            <p>
+                Habilitar las 4 APIs marcadas en la siguiente imagen, una por una.
+            </p>
+            <div class="text-center"><img src="../images/lab13_14.png"></div>
+        </li>
+        <li>
+            <p>
+                Al seleccionar una API, deberá dar clic en el botón HABILITAR y luego regresar a la sección de APIs para
+                realizar el mismo procedimiento con las demás.
+            </p>
+            <div class="text-center"><img src="../images/lab13_15.png"></div>
+        </li>
+        <li>
+            <p>
+                Luego de habilitar las 4 APIs deberá regresar al Panel de control y revisar que efectivamente estén
+                habilitadas dichas APIs
+            </p>
+            <div class="text-center"><img src="../images/lab13_16.png"></div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 3: </span>Creación de la aplicación móvil
+    </p>
+    <ol>
+        <li>
+            <p>
+                Haciendo uso del proyecto creado en el paso 1, crear dos nuevos Activities, uno de tipo Empty Activity y
+                otro de tipo Maps Activity, con los nombres “BuscarLugar” y “Ubicacion” respectivamente.
+            </p>
+        </li>
+        <li>
+            <p>
+                Generar los siguientes diseños.
+            </p>
+            <div class="row">
+                <div class="col-3">
+                    <div class="text-center"><img src="../images/lab13_17.png"></div>
+                </div>
+                <div class="col-3">
+                    <div class="text-center"><img src="../images/lab13_18.png"></div>
+                </div>
+                <div class="col-3">
+                    <div class="text-center"><img src="../images/lab13_19.png"></div>
+                </div>
+                <div class="col-3">
+                    <div class="text-center"><img src="../images/lab13_20.png"></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Definir las funciones de cada botón del Main Activity y asignarlos a los botones del diseño.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            public void consultarUbicacion(View v){
+                                Intent i = new Intent(this,Ubicacion.class);
+                                startActivity(i);
+                            }
+                            
+                            public void lugar(View v){
+                                Intent i = new Intent(this,BuscarLugar.class);
+                                startActivity(i);
+                            }                                                          
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                En el Activity BuscarLugar, declarar 3 atributos de tipo EditText (et1, et2 y et3) e inicializarlos con
+                cada uno de los componentes del diseño.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Si al ejecutar la aplicación, ésta se cierra luego de presionar el botón “Encontrar Lugar” es
+                        muy probable que sea debido a que no inicializó bien las variables que apuntan a los EditTexts.
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Definir la función del botón para que lea los datos ingresados en los EditTexts y los envíe al
+                MapsActivity.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            public void buscar(View v){
+                                Intent i = new Intent(this,MapsActivity.class);
+                                i.putExtra("titulo", et1.getText().toString());
+                                i.putExtra("lat", Double.parseDouble(et2.getText().toString()));
+                                i.putExtra("lng", Double.parseDouble(et3.getText().toString()));
+                                startActivity(i);
+                            }                                                                                   
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Modificar la función onMapReady del MapsActivity para que ubique un marcador con las coordenadas
+                ingresadas por el usuario y además tener un acercamiento aceptable del marcador dentro del mapa.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            @Override
+                            public void onMapReady(GoogleMap googleMap) {
+                                Bundle bundle = getIntent().getExtras();
+                                mMap = googleMap;
+                                mMap.getUiSettings().setZoomControlsEnabled(true);
+                                
+                                LatLng marcador = new LatLng(bundle.getDouble("lat"), bundle.getDouble("lng"));
+                                mMap.addMarker(new MarkerOptions().position(marcador).title(bundle.getString("titulo")));
+                                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcador,10));
+                            }                                                                                                        
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                En el Activity BuscarLugar, agregar un botón adicional con el texto “Obtener coordenadas” el cual
+                obtendrá la latitud y longitud del lugar ingresado por el usuario y los pondrá en los respectivos
+                EditTexts, para luego mediante el botón Buscar se muestre el lugar encontrado.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        El literal g) se lo realiza con el objetivo de que el usuario no ingrese coordenadas, sino que
+                        sólo ingrese un lugar, por ejemplo “Guayaquil” y con el botón “Obtener coordenadas”, la
+                        aplicación solita obtenga las coordenadas y el usuario mediante el botón “Buscar” pueda
+                        visualizar esa coordenada en el mapa.
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Definir la función del nuevo botón.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            public void obtenerCoordenadas(View v){
+                                Geocoder geocoder = new Geocoder(BuscarLugar.this);
+                                List&lt;Address&gt; list = new ArrayList<>();
+                                try {
+                                    list = geocoder.getFromLocationName(et1.getText().toString(),1);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                if(list.size() > 0){
+                                    Address address = list.get(0);
+                                    et2.setText(""+address.getLatitude());
+                                    et3.setText(""+address.getLongitude());
+                            
+                                }
+                                else{
+                                    Toast.makeText(this, "No se encontró ningún resultado, intente con otro lugar", Toast.LENGTH_SHORT).show();
+                                }
+                            }                                                                                                                                    
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 4: </span>Obtener ubicación del dispositivo móvil
+    </p>
+    <ol>
+        <li>
+            <p>
+                Instalar el servicio de localización de Google, dar clic derecho en app -> Open Module Settings
+            </p>
+            <div class="text-center"><img src="../images/lab13_21.png"></div>
+        </li>
+        <li>
+            <p>
+                En la nueva ventana que se abre, dar clic en Dependencies del panel izquierdo y luego dar clic en el + ,
+                seguido de la opción Library Dependency para agregar la dependencia.
+            </p>
+            <div class="text-center"><img src="../images/lab13_22.png"></div>
+        </li>
+        <li>
+            <p>
+                En la siguiente ventana, en el buscador colocar play-services-location y dar clic en Search; este
+                proceso puede demorar un poco.
+            </p>
+        </li>
+        <li>
+            <p>
+                Escoger la versión más reciente, dar clic en OK y nuevamente en OK.
+            </p>
+            <div class="text-center"><img src="../images/lab13_23.png"></div>
+        </li>
+        <li>
+            <p>
+                Crear el atributo “FusedLocationProviderClient fusedLocationProviderClient” en el MainActivity e
+                inicializarlo en la función onCreate como se muestre en la imagen.
+            </p>
+            <div class="text-center"><img src="../images/lab13_24.png"></div>
+        </li>
+        <li>
+            <p>
+                Editar la función consultarUbicación con el siguiente código
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            public void consultarUbicacion(View view) {
+                                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+                                    ActivityCompat.requestPermissions(MainActivity.this, 
+                                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
+                                }
+                                else {
+                                    fusedLocationProviderClient.getLastLocation().addOnCompleteListener(
+                                            new OnCompleteListener<Location>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Location> task) {
+                                            Location location = task.getResult();
+                                            if (location != null) {
+                                                try {
+                                                    Intent i = new Intent(MainActivity.this, Ubicacion.class);
+                                                    Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
+                                                    List<Address> list = geocoder.getFromLocation(location.getLatitude(),
+                                                            location.getLongitude(), 1);
+                            
+                                                    i.putExtra("titulo", list.get(0).getLocality());
+                                                    i.putExtra("lat", list.get(0).getLatitude());
+                                                    i.putExtra("lng", list.get(0).getLongitude());
+                                                    startActivity(i);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+                            }                                                                                                     
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Modificar la función onMapReady del Activity Ubicacion, debe ser exactamente igual a la función
+                onMapReady del Activity MapsActivity.
+            </p>
+        </li>
+        <li>
+            <p>
+                Ejecutar el código, la primera vez que se presione el botón Ver mi Ubicación, pedirá permiso para
+                acceder al GPS, concedemos el permiso y volvemos a presionar el botón Ver mi Ubicación.
+            </p>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 5 (Opcional): </span>Configuración del emulador Android
+    </p>
+    <ol>
+        <li>
+            <p>
+                Iniciar el celular virtual sin ejecutar el código.
+            </p>
+        </li>
+        <li>
+            <p>
+                En el panel derecho, seleccionar los tres puntos para abrir la ventana de controles extendidos.
+            </p>
+            <div class="text-center"><img src="../images/lab13_25.png"></div>
+        </li>
+        <li>
+            <p>
+                En la nueva ventana seleccionar la opción Location, buscar su posición actual, dar clic en el mapa y
+                luego dar clic en Set Location.
+            </p>
+            <div class="text-center"><img src="../images/lab13_26.png"></div>
+        </li>
+        <li>
+            <p>
+                Para que se actualice con la nueva ubicación, cierre la ventana y abra Google Maps dentro del celular
+                virtual.
+            </p>
+        </li>
+        <li>
+            <p>
+                Una vez haya corroborado la nueva ubicación puede ejecutar la aplicación y realizar las capturas
+                respectivas.
+            </p>
+        </li>
+    </ol>
 </body>
 
 </html>
