@@ -2,11 +2,609 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="public/stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Laboratorio 8</title>
 </head>
 
 <body>
+    <h2>Laboratorio 8</h2>
+    <h2>Base de Datos Relacionales (MySQL)</h2>
+    <h4>Objetivo:</h4>
+    <ul>
+        <li>
+            <p>Reconocer el funcionamiento y componentes de un sistema web dinámico que incluya bases de datos para el
+                manejo de la información.
+            </p>
+        </li>
+    </ul>
+    <h5>Duración:</h5>
+    <p>Ciento veinte (120) minutos.</p>
+    <h5>Materiales y Herramientas:</h5>
+    <ul>
+        <li>
+            <p>Una (1) Máquina virtual</p>
+            <ul>
+                <li>
+                    <p>En la nube (Azure)</p>
+                </li>
+                <li>
+                    <p>Localmente (VMware / VirtualBox</p>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p>Software editor de texto (Visual Studio Code)</p>
+        </li>
+    </ul>
+    <h5>Investigación</h5>
+    <h6>Pregunta 1: ¿Qué es y para qué sirve MySQL?</h6>
+    <h6>Pregunta 2: ¿Qué es el modelo entidad-relación?</h6>
 
+    <h5>Procedimiento</h5>
+    <div class="row">
+        <div class="col-2"><img src="../images/lab_danger.png"></div>
+        <div class="col-10 my-auto">
+            <small>
+                Para la práctica no será necesario hacer todas las intalaciones, puede ser solo una de ellas: W10,
+                Ubuntu 16 (VMware) o Ubuntu 18 (Azure).
+            </small>
+        </div>
+    </div>
+    <p>
+        <span class="h6">Paso 1.1: </span>Instalación del gestor de bases de datos MySQL en Ubuntu 16 (VMware)
+    </p>
+    <ol>
+        <li>
+            <p>
+                Iniciar la máquina virtual (MV)
+            </p>
+        </li>
+        <li>
+            <p>
+                Actualizar los repositorios y los programas desde el terminal
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            sudo apt-get update
+                            sudo apt-get upgrade
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Si se muestra un error de lock reinicie la MV, si el problema persiste digite los siguientes
+                        comandos:
+                        <ul>
+                            <li>
+                                <p>sudo fuser -vki /var/lib/dpkg/lock</p>
+                            </li>
+                            <li>
+                                <p>sudo rm -f /var/lib/dpkg/lock</p>
+                            </li>
+                            <li>
+                                <p>sudo dpkg --configure -a</p>
+                            </li>
+                        </ul>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Ejecutar el comando
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            sudo apt-get install mysql-server
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Durante la instalación le pedirá una contraseña para el usuario root de MySQL, ingrese una de su
+                preferencia
+            </p>
+        </li>
+        <li>
+            <p>
+                Ingrese al entorno de consola de MySQL ingresando desde el terminal el comando
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            sudo mysql -uroot -p
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Si en el literal anterior no le pidió contraseña, digite el comando “sudo mysql -uroot”
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Creamos un nuevo usuario con permisos de administrador
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            CREATE USER 'estudiante'@'%' IDENTIFIED BY 'estudiante';
+                            GRANT ALL PRIVILEGES ON *.* TO 'estudiante'@'%' WITH GRANT OPTION;
+                            FLUSH PRIVILEGES;
+                            QUIT;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 1.2: </span>Instalación del gestor de bases de datos MySQL en Ubuntu 18 (Azure)
+    </p>
+    <ol>
+        <li>
+            <p>
+                Iniciar la máquina virtual (MV)
+            </p>
+        </li>
+        <li>
+            <p>
+                Actualizar los repositorios y los programas desde el terminal
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            sudo apt-get update
+                            sudo apt-get upgrade
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Si se muestra un error de lock reinicie la MV, si el problema persiste digite los siguientes
+                        comandos:
+                        <ul>
+                            <li>
+                                <p>sudo fuser -vki /var/lib/dpkg/lock</p>
+                            </li>
+                            <li>
+                                <p>sudo rm -f /var/lib/dpkg/lock</p>
+                            </li>
+                            <li>
+                                <p>sudo dpkg --configure -a</p>
+                            </li>
+                        </ul>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>Ejecutar el comando</p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            sudo apt-get install mysql-server
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Ingrese al entorno de consola de MySQL ingresando desde el terminal el comando
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            sudo mysql -uroot
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Creamos un nuevo usuario con permisos de administrador
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            CREATE USER 'estudiante'@'%' IDENTIFIED BY 'estudiante';
+                            GRANT ALL PRIVILEGES ON *.* TO 'estudiante'@'%' WITH GRANT OPTION;
+                            FLUSH PRIVILEGES;
+                            QUIT;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 1.3: </span>Instalación del gestor de bases de datos MySQL en Windows 10
+    </p>
+    <ol>
+        <li>
+            <p>
+                Abrir en un navegador web la dirección<br>
+                <a
+                    href="https://dev.mysql.com/downloads/windows/installer/8.0.html">https://dev.mysql.com/downloads/windows/installer/8.0.html</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                Descargar el instalador
+            </p>
+            <div class="text-center"><img src="../images/lab8_1.png"></div>
+            <div class="text-center"><img src="../images/lab8_2.png"></div>
+        </li>
+        <li>
+            <p>
+                Ejecutar el instalador descargado
+            </p>
+            <div class="text-center"><img src="../images/lab8_3.png"></div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        En caso de que no tenga instalado ciertas dependencias, le pedirá instalarlas. Dé clic en
+                        Execute y luego en Instalar
+                    </small>
+                </div>
+            </div>
+            <div class="text-center"><img src="../images/lab8_4.png"></div>
+            <div class="text-center"><img src="../images/lab8_5.png"></div>
+            <div class="text-center"><img src="../images/lab8_6.png"></div>
+            <div class="text-center"><img src="../images/lab8_7.png"></div>
+        </li>
+        <li>
+            <p>
+                Configurar el servidor
+            </p>
+            <div class="text-center"><img src="../images/lab8_8.png"></div>
+            <div class="text-center"><img src="../images/lab8_9.png"></div>
+            <div class="text-center"><img src="../images/lab8_10.png"></div>
+            <div class="text-center"><img src="../images/lab8_11.png"></div>
+            <div class="text-center"><img src="../images/lab8_12.png"></div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_idea.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Si desea puede desmarcar la casilla “Start the MySQL Server at System Startup”, de ese modo no
+                        se iniciará el servicio automáticamente cada que inicie windows y deberá hacerlo manualmente
+                    </small>
+                </div>
+            </div>
+            <div class="text-center"><img src="../images/lab8_13.png"></div>
+            <div class="text-center"><img src="../images/lab8_14.png"></div>
+            <div class="text-center"><img src="../images/lab8_15.png"></div>
+        </li>
+        <li>
+            <p>
+                Abrir un terminal en Windows (CMD) y dirigirse al directorio donde se instaló MySQL
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            cd "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Ingrese al entorno de consola de MySQL ingresando desde el terminal el comando
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            mysql -uroot -p
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Creamos un nuevo usuario con permisos de administrador
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            CREATE USER 'estudiante'@'%' IDENTIFIED BY 'estudiante';
+                            GRANT ALL PRIVILEGES ON *.* TO 'estudiante'@'%' WITH GRANT OPTION;
+                            FLUSH PRIVILEGES;
+                            QUIT;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 2: </span>Configuración MySQL en VS Code
+    </p>
+    <ol>
+        <li>
+            <p>
+                Instalar las siguientes extensiones:
+            </p>
+            <ol>
+                <li>
+                    <p>“MySQL” de cweijan</p>
+                </li>
+                <li>
+                    <p>“MySQL Syntax” de Jake Bathman</p>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <p>
+                Crear una nueva conexión en VS Code, complete el formulario como se muestra.
+            </p>
+            <div class="text-center"><img src="../images/lab8_16.png"></div>
+        </li>
+        <li>
+            <p>
+                Crear una base de datos llamada espol
+            </p>
+            <div class="text-center"><img src="../images/lab8_17.png"></div>
+        </li>
+        <li>
+            <p>
+                Crear la tabla estudiantes con los siguientes campos
+            </p>
+            <div class="text-center"><img src="../images/lab8_18.png"></div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 3: </span>Conexión de la base de datos con el Backend
+    </p>
+    <ol>
+        <li>
+            <p>
+                Abrir la carpeta “laboratorio6-7” en VS Code
+            </p>
+        </li>
+        <li>
+            <p>
+                En el terminal ingresar a la carpeta backend e instalar el módulo mysql2
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            npm install mysql2
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Si está trabajando con Ubuntu deberá anteponer la palabra sudo al comando anterior (sudo npm
+                        install mysql2)
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                En la carpeta controllers eliminar el archivo llamado database.js, o cambiarle de nombre
+            </p>
+        </li>
+        <li>
+            <p>
+                En la misma carpeta controllers, crear dos archivos database.js y keys.js
+            </p>
+        </li>
+        <li>
+            <p>
+                Archivo keys.js
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            module.exports = {
+                                database: {
+                                    host: 'localhost',
+                                    user: 'estudiante',
+                                    password: 'estudiante',
+                                    database: 'espol'
+                                }
+                            };                            
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Archivo database.js
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const mysql = require ('mysql2')
+                            const {database} = require('./keys');
+                            const pool = mysql.createPool(database);
+
+                            pool.getConnection((err,con)=>{
+                                if(err){
+                                    /*console.error(err.code);
+                                    process.exit(0);*/
+                                    throw err;
+                                }
+                                if(con) con.release();
+                                console.log('Conexión realizada');
+                                return;
+                            });
+                            module.exports = pool;                        
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                En el archivo index.js del backend ELIMINAR la línea de código “db.init( )” y la importación de dicho
+                archivo “const db = require('./controllers/database');”
+            </p>
+        </li>
+    </ol>
+
+    <h6>Pregunta 3: Mencione los 4 comandos SQL-DML y dé un ejemplo de cada uno.</h6>
+    <p>
+        <span class="h6">Paso 4: </span>Funciones SQL hacia la base de datos
+    </p>
+    <ol>
+        <li>
+            <p>
+                En el archivo “estudiantesControl.js” editar la función getEstudiantes:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            estudiantesControl.getEstudiantes = (req,res)=>{
+                                db.query("Select * FROM estudiantes", (err,result,fields)=>{
+                                    if (err) {
+                                        res.status(500).send(err);
+                                        console.log(err);
+                                        return;
+                                    }
+                                    res.json(result);
+                                });
+                            }                                              
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Editar la función postEstudiante:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            estudiantesControl.postEstudiante = (req,res)=>{
+                                const {id,nombre,apellido} = req.body;
+                                if(!nombre || !apellido){
+                                    res.status(400).send("Datos incompletos {nombre, apellido}");
+                                    return;
+                                }
+                                let SQLbody = {};
+                                if(!id) SQLbody = {nombre,apellido};
+                                else    SQLbody = {id,nombre,apellido};
+                                
+                                db.query("INSERT INTO estudiantes SET ?", [SQLbody],
+                                (err,result)=>{
+                                    if (err) {
+                                        res.status(500).send(err);
+                                        console.log(err);
+                                        return;
+                                    }
+                                    res.send('Estudiante insertado con id: '+result.insertId);
+                                });
+                            }                                                                    
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Editar la función getEstudiante:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            estudiantesControl.getEstudiante = (req,res)=>{
+                                if(isNaN(req.params.id)){
+                                    res.status(400).send("No es un id numérico");
+                                    return;
+                                }
+                                db.query("SELECT * FROM estudiantes WHERE id="+req.params.id, 
+                                (err,result,fields)=>{
+                                    if (err) {
+                                        res.status(500).send(err);
+                                        console.log(err);
+                                        return;
+                                    }
+                                    res.json(result);
+                                });
+                            }                                                                                    
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <h6>Pregunta 4: Edite las funciones “putEstudiante” y “deleteEstudiante” que permita editar y borrar un estudiante
+        respectivamente de la base de datos.</h6>
 </body>
 
 </html>
