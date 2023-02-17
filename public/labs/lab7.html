@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="public/stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Laboratorio 7</title>
+</head>
+
+<body>
+    <h2>Laboratorio 7</h2>
+    <h2>Desarrollo de una aplicación Web (Cliente)</h2>
+    <h4>Objetivo:</h4>
+    <ul>
+        <li>
+            <p>Implementar rutas a nivel de cliente (Frontend) para actualizar las vistas rápidamente sin necesidad de
+                hacer peticiones al servidor.
+            </p>
+        </li>
+        <li>
+            <p>Pasar a producción la programación del Frontend mediante la carpeta build al ser compilado el proyecto.
+            </p>
+        </li>
+    </ul>
+    <h5>Duración:</h5>
+    <p>Ciento veinte (120) minutos.</p>
+    <h5>Materiales y Herramientas:</h5>
+    <ol>
+        <li>
+            <p>Un navegador web</p>
+        </li>
+        <li>
+            <p>Software editor de texto (Visual Studio Code)</p>
+        </li>
+        <li>
+            Código de la práctica #6
+        </li>
+    </ol>
+    <h5>Investigación</h5>
+    <h6>Pregunta 1: ¿Qué es un hosting?</h6>
+    <h6>Pregunta 2: Mencione y describa otra herramienta en línea para generar máquinas virtuales como Microsoft Azure
+    </h6>
+
+    <h5>Procedimiento</h5>
+    <p>
+        <span class="h6">Paso 1: </span>Diseño de la página Web
+    </p>
+    <ol>
+        <li>
+            <p>
+                Abrir la carpeta “laboratorio6-7” en VS Code
+            </p>
+        </li>
+        <li>
+            <p>
+                Abrir un terminal e ingresar a la carpeta frontend
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            cd ./frontend
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                En el archivo App.js importar navigation: import Navigation from './components/Navigation'
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            import Navigation from './components/Navigation'
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Desde el terminal instalar el siguiente módulo:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            npm install react-router-dom
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Importar las siguientes librerías en el archivo “App.js”
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            import React from 'react'
+                            import {BrowserRouter as Router, Route} from 'react-router-dom'
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Editar la función principal del archivo App.js
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            function App() {
+                                return (
+                                    &lt;Router&gt;
+                                    &lt;Navigation/&gt;
+                                    &lt;/Router&gt;
+                                );
+                              }                              
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Instalar el framework de CSS (Bootstrap) y dependencias:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            npm install bootstrap popper.js jquery                      
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Al inicio del archivo App.js agregar las librerías de Bootstrap
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            import 'bootstrap/dist/js/bootstrap.js';
+                            import 'bootstrap/dist/css/bootstrap.min.css';
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Ir a la <a href="https://getbootstrap.com/docs/4.5/components/navbar/#nav">documentación</a> de
+                Bootstrap, copiar el SEGUNDO código de Nav y reemplazar el &lt;div&gt; en el archivo “Navigation.js”
+            </p>
+        </li>
+        <li>
+            <p>
+                Dentro de las etiquetas, reemplazar la palabra “class” por “className” y los atributos href = "#"
+                reemplazarlos por href = "/"
+            </p>
+        </li>
+        <li>
+            <p>
+                Ejecutar el Frontend desde el terminal
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            npm start
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Cambiar el <a href="https://getbootstrap.com/docs/4.0/utilities/colors/#background-color">color</a> del
+                componente navbar del archivo Navigation.js y las pestañas para que se vea de la siguiente forma:
+            </p>
+            <div class="text-center"><img src="../images/lab7_1.png"></div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_idea.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Si desea cambiar la alineación de las pestañas hacia la derecha, deberá agregar el atributo
+                        ml-auto a la etiqueta
+                        <pre>className=“navbar-nav”.</pre>
+                        <pre>className=“navbar-nav ml-auto”</pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 2: </span>Configuración de rutas a nivel de frontend
+    </p>
+    <ol>
+        <li>
+            <p>
+                Importar el componente “Link” de la librería “'react-router-dom” en el archivo “Navigation.js”
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            import { Link } from 'react-router-dom'
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                En el archivo “Navigation.js” reemplazar todas las etiquetas “a href” por “Link to”. Ej.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            &lt;Link className="navbar-brand" to="/"&gt;PST P10X&lt;/Link&gt;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                En el archivo “Navigation.js” cambiar la ruta de la pestaña Profesores a to="/profesores"
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            &lt;Link className="nav-link" to="/profesores"&gt; Profesores &lt;/Link&gt;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Editar la función “App()” del archivo “App.js” para asignar la nueva ruta de profesores y la ruta inicio
+                para el frontend
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            import 'bootstrap/dist/js/bootstrap.js';
+                            import 'bootstrap/dist/css/bootstrap.min.css';
+                            import './App.css';
+                            import Navigation from './components/Navigation'
+                            import Show from './components/showEstudiantes'
+                            import React from 'react'
+                            import {BrowserRouter as Router, Route} from 'react-router-dom'
+
+                            function App() {
+                            return (
+                                &lt;Router&gt;
+                                &lt;Navigation/&gt;
+                                &lt;Route path="/" exact component={Show} /&gt;
+                                &lt;Route path="/profesores" render={()=>(&lt;div&gt;Lista de Profesores&lt;/div&gt;)}/&gt;
+                                &lt;/Router&gt;
+                            );
+                            }
+
+                            export default App;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 3: </span>Conexión con el Backend
+    </p>
+    <ol>
+        <li>
+            <p>
+                Agregar una variable de configuración en el archivo “App.js” del frontend (fuera de la función “App( )”
+                )
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            export const backend = {
+                                host: "http://localhost",
+                                port: 8080
+                            }                              
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Instalar desde el terminal el módulo “axios”
+            </p>
+        </li>
+        <li>
+            <p>
+                En el archivo “showEstudiantes.js” importar el módulo axios y la variable de configuración
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            import axios from "axios"
+                            import {backend} from '../App'                        
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Dentro de la clase “showEstudiantes” (pero fuera de la función “render( )” ), agregar el siguiente
+                código:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            state = {
+                                users: [],
+                                idEstudiante:'',
+                                nombreEstudiante:'',
+                                apellidoEstudiante:''
+                            
+                            }
+                            async getEstudiantes() {
+                                const res = await axios.get(backend.host + ':' + backend.port + '/estudiantes');
+                                this.setState({users:res.data});
+                            }
+                            async componentDidMount() {
+                                await this.getEstudiantes();
+                                console.log(this.state.users);
+                            }                                                
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_idea.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Si desea usar atajos para diseñar etiquetas HTML con Javascript en React, presione la tecla F1,
+                        digite “open settings (JSON)” y presione ENTER; en el archivo de configuración que aparece,
+                        agregar el siguiente par clave-valor:
+                        <pre>
+                            "emmet.includeLanguages": {
+                                "javascript": "javascriptreact"
+                            }
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                En la función “render( )” borrar las etiquetas &lt;div&gt; y &lt;/div&gt;, digitar .row y teclear ENTER
+                para que se cree automáticamente la etiqueta &lt;div className=“row”&gt; &lt;/div&gt; (si es que realizó
+                la sugerencia del literal anterior, caso contrario
+                deberá editar el código de la siguiente manera):
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            &lt;div className="row"&gt;
+                                &lt;div className="col-md-4"&gt;
+                                    Formulario
+                                &lt;/div&gt;
+                                &lt;div className="col-md-8"&gt;
+                                    &lt;ul className="list-group"&gt;
+                                        {
+                                            this.state.users.map(user => (
+                                                &lt;li className="list-group-item list-group-item-action" key={user.id} id={user.id} onDoubleClick={this.ondelete}&gt;
+                                                    {user.nombre+" "+user.apellido}
+                                                &lt;/li&gt;)
+                                            )
+                                        }
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;                                                                    
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Iniciar el backend desde otra terminal en caso de que no esté activado, si no tiene ningún estudiante
+                almacenado en el backend, utilice Postman para agregarlos mediante POST.
+            </p>
+        </li>
+        <li>
+            <p>
+                Modificar el contenido de la etiqueta &lt;div className="col-md-4"&gt; por:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            &lt;div className="col-md-4"&gt;
+                                &lt;div className="card card-body"&gt;
+                                    &lt;h4&gt;Ingresar estudiante&lt;/h4&gt;
+                                    &lt;form onSubmit={this.onSubmit}&gt;
+                                        &lt;div className="form-group"&gt;
+                                            &lt;input type="text" className="form-control" value={this.state.idEstudiante} placeholder="Id" onChange={this.onChangeId}/&gt;
+                                            &lt;input type="text" className="form-control" value={this.state.nombreEstudiante} placeholder="Nombre" onChange={this.onChangeNombre}/&gt;
+                                            &lt;input type="text" className="form-control" value={this.state.apellidoEstudiante} placeholder="Apellido" onChange={this.onChangeApellido}/&gt;
+                                        &lt;/div&gt;
+                                        &lt;button className="btn btn-primary" type='submit'&gt;Guardar&lt;/button&gt;
+                                    &lt;/form&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Fuera de la función “render ( )”, crear las funciones de los literales e) y g): (onDelete, onSubmit,
+                onChangeId, onChangeNombre y onChangeApellido)
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            onChangeId = (e)=>{
+                                this.setState({
+                                    idEstudiante: e.target.value
+                                })
+                            }
+                            
+                            onChangeNombre = (e)=>{
+                                this.setState({
+                                    nombreEstudiante: e.target.value
+                                })
+                            }
+                            
+                            onChangeApellido = (e)=>{
+                                this.setState({
+                                    apellidoEstudiante: e.target.value
+                                })
+                            }
+                            
+                            onSubmit = async (e)=>{
+                                e.preventDefault();
+                                try {
+                                    const res = await axios.post(backend.host + ':' + backend.port + '/estudiantes',{
+                                        id:this.state.idEstudiante,
+                                        nombre:this.state.nombreEstudiante,
+                                        apellido:this.state.apellidoEstudiante
+                                    })
+                                    console.log(res);
+                                } catch (error) {
+                                    alert(error.response.data);
+                                }
+                                
+                                this.getEstudiantes();
+                                this.setState({idEstudiante:''});
+                                this.setState({nombreEstudiante:''});
+                                this.setState({apellidoEstudiante:''});
+                            }
+                            
+                            ondelete = async (e)=>{
+                                console.log(e.target.getAttribute('id'));
+                            }                                                
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <h6>Pregunta 3: Modificar la función onDelete para que elimine a un estudiante al dar doble clic sobre él y se
+        actualice la lista.</h6>
+    <p>
+        <span class="h6">Paso 4: </span>Frontend en producción
+    </p>
+    <p>Una vez realizado todas las pruebas en el frontend y observar que todo funciona como debe, el siguiente paso es
+        compilar el código de React para generar una página estática y poder subirla a un servidor específico como
+        Apache o Nginx; en esta práctica se subirá el frontend al mismo servidor web donde se encuentra el backend.
+    </p>
+    <ol>
+        <li>
+            <p>
+                Detener ambos procesos, tanto el frontend como el backend.
+            </p>
+        </li>
+        <li>
+            <p>
+                En el terminal del frontend ejecutar el siguiente comando:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            npm run build
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Copiar la carpeta build que se creó en el literal anterior y pegarla dentro de la carpeta src pero
+                del backend.
+            </p>
+        </li>
+        <li>
+            <p>
+                En el archivo “app.js” del backend, agregar el módulo “path”
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            const path = require('path');
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Utilizar el middleware static de express
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            server.use(express.static(path.join(__dirname, 'build')));
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Implementar la función get para llamar a los archivos estáticos del frontend
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            server.get('/', function (req, res) {
+                                res.sendFile(path.join(__dirname, 'build', 'index.html'));
+                            })                            
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Activar solamente el servidor web del backend.
+            </p>
+        </li>
+    </ol>
+
+    <h2>RETO</h2>
+    <p>Levantar el mismo servidor web, pero en la nube de Microsoft Azure, sólo es necesario migrar la carpeta del
+        Backend. Recuerde que el backend al estar en la nube, debe primero cambiar el archivo de configuración del
+        frontend (App.js) y volver a generar la carpeta build.
+    </p>
+</body>
+
+</html>
