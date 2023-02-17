@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="public/stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Laboratorio 9</title>
+</head>
+
+<body>
+    <h2>Laboratorio 9</h2>
+    <h2>Introducción a Android Studio</h2>
+    <h4>Objetivo:</h4>
+    <ul>
+        <li>
+            <p>Reconocer el entorno de trabajo del software Android Studio a través de una práctica básica para la
+                introducción en el modelado, simulado y control de redes.
+            </p>
+        </li>
+    </ul>
+    <h5>Duración:</h5>
+    <p>Ciento veinte (120) minutos.</p>
+    <h5>Materiales y Herramientas:</h5>
+    <ul>
+        <li>
+            <p>Software Android Studio</p>
+        </li>
+    </ul>
+    <h5>Introducción</h5>
+    <p>
+        Android Studio es un IDE o entorno de desarrollo para la creación de aplicaciones Android basado en IntelliJ
+        IDEA que ha nacido para sustituir al entorno usado casi exclusivamente hasta ahora, Eclipse con el plugin
+        ADT(Android Developer Tools). Al igual que en Eclipse con el plugin ADT, Android Studio proporciona herramientas
+        de desarrollo y depuración integradas para facilitar la tarea de los desarrolladores Android.<br>
+        Además de las capacidades que dispone IntelliJ, Android Studio ofrece:
+    </p>
+    <ul>
+        <li>
+            <p>
+                Refactorización específica para Android y ayuda para dar soluciones rápidas a los errores que puedan
+                surgir.
+            </p>
+        </li>
+        <li>
+            <p>
+                Herramientas para capturar errores de rendimiento, facilidad de uso, compatibilidad con versiones
+                antiguas y demás problemas.
+            </p>
+        </li>
+        <li>
+            <p>
+                Ofuscación de código mediante Proguard.
+            </p>
+        </li>
+        <li>
+            <p>
+                Firma de aplicaciones.
+            </p>
+        </li>
+        <li>
+            <p>
+                Asistentes basados en plantillas para crear diseños y componentes comunes de Android.
+            </p>
+        </li>
+        <li>
+            <p>
+                Un editor de diseño muy completo que permite, entre otras cosas, gestionar los componentes de interfaz
+                de usuario mediante drag and drop (arrastrar y soltar) o vistas previas con múltiples configuraciones de
+                pantalla.
+            </p>
+        </li>
+    </ul>
+
+    <h5>Procedimiento</h5>
+    <p>
+        <span class="h6">Paso 1: </span>Iniciando el entorno Android Studio
+    </p>
+    <ol>
+        <li>
+            <p>
+                Iniciar el software Android Studio. En la nueva ventana seleccionar “Start a new Android Studio
+                project”.
+            </p>
+        </li>
+        <li>
+            <p>
+                En el campo “Application name” colocar Laboratorio9TLM.
+            </p>
+        </li>
+        <li>
+            <p>
+                En “Project location” escoger la ruta donde se guardará el proyecto y clic en “Next”.
+            </p>
+        </li>
+        <li>
+            <p>
+                En la nueva ventana se escoge el SDK (Software Development Kit) mínimo que debe tener el dispositivo
+                para poder ejecutar nuestra aplicación. Seleccionar API 18 y clic en “Next”.
+            </p>
+        </li>
+        <li>
+            <p>
+                Aparecen las diferentes ventanas para la aplicación, seleccionar “Empty Activity” y clic en “Next”.
+            </p>
+        </li>
+        <li>
+            <p>
+                En la siguiente ventana dejar los parámetros por defecto y clic en “Finish”.
+            </p>
+        </li>
+    </ol>
+    <div class="row">
+        <div class="col-2"><img src="../images/lab_danger.png"></div>
+        <div class="col-10 my-auto">
+            <small>
+                Al ejecutar el software, aparecerá el último proyecto en el que se ha estado trabajando, en caso de
+                querer empezar un nuevo proyecto seleccionar en el menú principal “File → Close Project”
+            </small>
+        </div>
+    </div>
+
+    <p>
+        <span class="h6">Paso 2: </span>Creación del dispositivo virtual para pruebas
+    </p>
+    <ol>
+        <li>
+            <p>
+                En el menú principal, seleccionar “Tools → Android → AVD Manager (Android Virtual Device Manager)”
+            </p>
+        </li>
+        <li>
+            <p>
+                En la nueva ventana dar clic en “Create Virtual Device…”
+            </p>
+        </li>
+        <li>
+            <p>
+                Se muestra una lista de dispositivos descargados con diferentes resoluciones de pantalla, seleccionar la
+                opción Pixel de 5.0” y clic en “Next”.
+            </p>
+        </li>
+        <li>
+            <p>
+                En la siguiente lista aparecen los sistemas operativos recomendados para trabajar, seleccionar la
+                versión más reciente y clic en “Next”.
+            </p>
+        </li>
+        <li>
+            <p>
+                En la ventana que aparece permite cambiar ciertas configuraciones del emulador, como la conectividad a
+                Internet, la simulación de la cámara, entre otra; para la práctica dejar todas las opciones por defecto
+                y dar clic en “Finish”.
+            </p>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Actividad 1: </span>Presente una captura del dispositivo ejecutando la aplicación “Hola Mundo”
+        creada por defecto en el Paso 1.
+    </p>
+    <p>
+        <span class="h6">Paso 3: </span>Configuración de un dispositivo real para pruebas con Android Studio.
+    </p>
+    <div class="row">
+        <div class="col-2"><img src="../images/lab_danger.png"></div>
+        <div class="col-10 my-auto">
+            <small>
+                Dependiendo de la versión del sistema operativo, los pasos mencionados a continuación pueden cambiar
+                ligeramente.
+            </small>
+        </div>
+    </div>
+    <ol>
+        <li>
+            <p>
+                Abrir la opción “Configuración” o “Ajustes” del celular.
+            </p>
+        </li>
+        <li>
+            <p>
+                Seleccionar la opción “Acerca del teléfono”.
+            </p>
+        </li>
+        <li>
+            <p>
+                Presionar 7 veces consecutivas el “Número de compilación”, aparecerá un mensaje indicando que ha sido
+                habilitado las opciones de desarrollador.
+            </p>
+        </li>
+        <li>
+            <p>
+                Al volver a la pantalla anterior, se podrá escoger “Opción de desarrollador”.
+            </p>
+        </li>
+        <li>
+            <p>
+                En la sección “Depuración”, habilitar la opción “Depuración mediante USB”.
+            </p>
+        </li>
+    </ol>
+
+    <div class="row">
+        <div class="col-2"><img src="../images/lab_idea.png"></div>
+        <div class="col-10 my-auto">
+            <small>
+                Los dispositivos con tecnología Android presentan diferentes opciones para el desarrollador a las que
+                puedes acceder en el teléfono. Con ellas puedes hacer lo siguiente:
+                <ul>
+                    <li>
+                        Habilitar la depuración mediante USB.
+                    </li>
+                    <li>
+                        Obtener rápidamente informes de errores en el dispositivo.
+                    </li>
+                    <li>
+                        Mostrar el uso de la CPU en la pantalla.
+                    </li>
+                    <li>
+                        Mostrar información de depuración en la pantalla, como límites, actualizaciones en vistas de
+                        GPU y capas de hardware, y otros datos.
+                    </li>
+                    <li>
+                        Muchas más opciones para simular esfuerzos de la app o habilitar opciones de depuración.
+                    </li>
+                </ul>
+            </small>
+        </div>
+    </div>
+
+    <p>
+        <span class="h6">Paso 4: </span>Diseño de Formulario
+    </p>
+    <p>
+        <span class="h6">Actividad 2: </span>¿Qué es un Layout en Android Studio y para qué se utiliza?
+    </p>
+    <ol>
+        <li>
+            <p>
+                En el archivo “activity_main.xml”, seleccionar la pestaña “Design” y crear el siguiente formulario:
+            </p>
+            <div class="text-center"><img src="../images/lab9_1.png"></div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_idea.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        El layout por defecto es “ConstraintLayout”, éste permite ubicar los elementos haciendo
+                        referencia a la ubicación de otro elemento.
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Actividad 3: </span>Investigue qué otros Layouts permite usar Android Studio y describa cada
+        uno de ellos.
+    </p>
+    <p>
+        <span class="h6">Paso 5: </span>Funcionalidad del Formulario
+    </p>
+    <ol>
+        <li>
+            <p>
+                En el archivo “MainActivity.java”, editar el código para que quede de la siguiente forma:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            import android.support.v7.app.AppCompatActivity;
+                            import android.os.Bundle;
+
+                            import android.content.Intent;
+                            import android.net.Uri;
+                            import android.util.Log;
+                            import android.view.View;
+                            import android.widget.EditText;
+                            import android.widget.Toast;
+
+                            public class MainActivity extends AppCompatActivity {
+
+                                EditText etnombres, etapellidos, etphone, etmail;
+                                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+                                @Override
+                                protected void onCreate(Bundle savedInstanceState) {
+                                    super.onCreate(savedInstanceState);
+                                    setContentView(R.layout.activity_main);
+                                    etnombres = (EditText)findViewById(R.id.editTextNombres);
+                                    etapellidos = (EditText)findViewById(R.id.editTextApellidos);
+                                    etphone = (EditText)findViewById(R.id.editTextPhone);
+                                    etmail = (EditText)findViewById(R.id.editTextMail);
+                                }
+
+                                public void enviar (View v){
+                                    String[] to = {"cvaccaro@espol.edu.ec"};
+                                    String[] cc = {"cvaccaro@fiec.espol.edu.ec"};
+                                    emailIntent.setData(Uri.parse("mailto:"));
+                                    emailIntent.setType("text/plain");
+                                    emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
+                                    emailIntent.putExtra(Intent.EXTRA_CC, cc);
+                                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Formulario de Registro PST");
+                                    
+
+
+                                    emailIntent.putExtra(Intent.EXTRA_TEXT, "Datos de Contacto\n" +
+                                        "Nombres:" + etnombres.getText().toString()+ "\n" +
+                                        "Apellidos:" + etapellidos.getText().toString() +"\n" +
+                                        "Teléfono:" + etphone.getText().toString() + "\n" +
+                                        "Correo Electrónico:" + etmail.getText().toString()+ "\n");
+
+                                    try {
+                                        startActivity(Intent.createChooser(emailIntent, "Enviando Email"));
+                                        Log.i("termina envio de email", "");
+                                    }
+                                    catch (android.content.ActivityNotFoundException ex) {
+                                        Toast.makeText(MainActivity.this, "No existe cliente Email instalado.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Asegúrese de que los nombres de los componentes creados en el Paso 4 sean iguales a los nombres
+                        usados en el Paso 5
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 6: </span>Ejecución del Formulario
+    </p>
+    <ol>
+        <li>
+            <p>
+                En la barra de herramientas dé clic en la opción “Run App” <img src="../images/lab_run.png">, y
+                seleccionar el dispositivo a ejecutar.
+            </p>
+        </li>
+        <li>
+            <p>
+                Ingrese los datos en el formulario.
+            </p>
+        </li>
+        <li>
+            <p>
+                Envíe los datos presionando el botón ENVIAR.
+            </p>
+        </li>
+        <li>
+            <p>
+                Escoja una aplicación para enviar los datos
+            </p>
+        </li>
+        <li>
+            <p>
+                Verifique el envío del correo
+            </p>
+        </li>
+    </ol>
+
+    <h6>RETO (10 puntos extras): A partir del formulario creado en el laboratorio, genere una nueva función para el
+        botón la cual ya no abra una aplicación externa, sino que en la misma app muestre una nueva ventana de
+        bienvenida con los campos del formulario dentro de un TextView (Similar a la app Hello World).</h6>
+</body>
+
+</html>
