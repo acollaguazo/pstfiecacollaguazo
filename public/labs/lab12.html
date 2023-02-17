@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="public/stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Laboratorio 12</title>
+</head>
+
+<body>
+    <h2>Laboratorio 12</h2>
+    <h2>Comunicación Android con base de datos en la nube</h2>
+    <h4>Objetivo:</h4>
+    <ul>
+        <li>
+            <p>
+                Realizar una conexión remota entre una aplicación de Android y una base relacional para adquisición de
+                datos desde Internet.
+            </p>
+        </li>
+    </ul>
+    <h5>Duración:</h5>
+    <p>Ciento veinte (120) minutos.</p>
+    <h5>Materiales y Herramientas:</h5>
+    <ul>
+        <li>
+            <p>Software Android Studio</p>
+        </li>
+    </ul>
+    <h5>Introducción</h5>
+    <p>Una base de datos remota es una base de datos que se encuentra físicamente en otro sistema de servidor, a
+        diferencia de una base de datos local que se encuentra físicamente en el sistema del servidor local.
+    </p>
+    <h6>VENTAJAS</h6>
+    <ol>
+        <li>
+            <p>
+                Eliminar costos y esfuerzos de enrutamiento de TI.
+            </p>
+        </li>
+        <li>
+            <p>
+                Potente, se puede ajustar la instancia de la base para permitir recursos completos, usar cachés de
+                memoria más grandes y permitir más ciclos de CPU.
+            </p>
+        </li>
+        <li>
+            <p>
+                Estable, el servidor de la base no afectará la disponibilidad de un servidor web local.
+            </p>
+        </li>
+    </ol>
+    <h6>DESVENTAJAS</h6>
+    <ol>
+        <li>
+            <p>
+                Velocidad, el tiempo de ida y vuelta de una solicitud de conexión o de consulta a la base es superior al
+                tiempo de una base local.
+            </p>
+        </li>
+        <li>
+            <p>
+                Seguridad, no puede ser controlado por un administrador propio, sino que depende exclusivamente de la
+                seguridad otorgada por el proveedor.
+            </p>
+        </li>
+    </ol>
+
+    <h5>Investigación</h5>
+    <h6>Pregunta 1: ¿Con qué otro método es posible acceder a datos de Internet desde una app móvil?</h6>
+    <h6>Pregunta 2: Mencione al menos 3 páginas o servicios de internet que ofrecen el servicio de bases de datos
+        remotas. (Exceptuando la utilizada en la práctica)</h6>
+
+    <h5>Procedimiento</h5>
+    <p>
+        <span class="h6">Paso 1: </span>Acceso a una cuenta para el servicio de base de datos remoto
+    </p>
+    <ol>
+        <li>
+            <p>
+                Acceder desde un navegador a la página <a href="www.000webhost.com">www.000webhost.com</a>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Utilizar la base de datos empleada en la práctica 6
+            </p>
+        </li>
+        <li>
+            <p>
+                En caso de no recordar la contraseña de la base de datos, genere una nueva
+            </p>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 2: </span>Conexión a MySQL
+    </p>
+    <ol>
+        <li>
+            <p>
+                Mediante el administrador de archivos, cree un archivo llamado conexion.php
+            </p>
+        </li>
+        <li>
+            <p>
+                Agregue el código de conexión usado en prácticas pasadas para conectarse con la base de datos.
+            </p>
+        </li>
+        <li>
+            <p>
+                Agregue el siguiente código para validar la conexión en el navegador Web.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            $query = "SELECT * FROM Factura";
+                            $result = mysqli_query($con, $query);
+
+                            if(mysqli_num_rows($result) > 0){
+                                echo "Acceso exitoso";
+                            }
+                            else{
+                                echo "Tabla Factura vacía";
+                            }
+
+                            mysqli_free_result($result);
+                            mysqli_close($con);                                  
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                En el navegador inicie su página web con el archivo conexion.php y muestre el resultado, junto al código
+                editado del literal b) del paso 2.
+            </p>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 3: </span>Creación de la aplicación móvil
+    </p>
+    <ol>
+        <li>
+            <p>
+                Crear un nuevo proyecto con el nombre lab10TLM.
+            </p>
+        </li>
+        <li>
+            <p>
+                Diseñar un layout que contenga un textview(sin texto) que abarque el ancho de la aplicación y en la
+                parte inferior un botón que sea Conectar.
+            </p>
+            <div class="text-center"><img src="../images/lab12_1.png"></div>
+        </li>
+        <li>
+            <p>
+                En la clase main crear el atributo para de tipo textview, el cual debe ser asignado al componente que se
+                diseñó en el literal anterior en la función onCreate y otro atributo de tipo String para almacenar la
+                URL.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            private String server = "https://XXXXXXXX.000webhostapp.com/conexion.php";
+                            private TextView consulta;                                
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Dentro de la carpeta com.example.lab10tlm, crear una nueva clase llamada AsyncQuery que herede de la
+                clase AsyncTask&lt;String[],Void,String[]&gt;&lt;/String&gt;
+            </p>
+        </li>
+        <li>
+            <p>
+                Sobrescribir la función doInBackground con el siguiente código:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            Arrreglo1[]={“login”, “www.000webhost.com”};
+                            doInBackground(arreglo1)
+                            protected String[] doInBackground(String[]... datos) {//[“login”, “URL”]
+                                String[] totalResultadoSQL = null;
+                                String type = datos[0][0];
+                                String login_url = datos[0][1];
+
+                                if(type.equals("login")){
+                                    try {
+                                        URL url = new URL(login_url);
+                                        HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                                        httpURLConnection.setRequestMethod("POST");
+                                        httpURLConnection.setDoInput(true);
+
+                                        InputStream iStr = httpURLConnection.getInputStream();
+                                        BufferedReader bR = new BufferedReader(new InputStreamReader(iStr,"UTF-8"));
+                                        String resultado="";
+                                        String line="";
+
+                                        while((line = bR.readLine()) != null){
+                                            resultado += line + System.getProperty("line.separator") ;
+                                        }
+                                        bR.close();
+                                        iStr.close();
+                                        httpURLConnection.disconnect();
+
+                                        totalResultadoSQL = new String[]{
+                                                resultado 
+
+                                        };
+
+                                    } catch (MalformedURLException e ) {
+                                        e.printStackTrace();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                                return totalResultadoSQL;
+                            }
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Crear una función llamada conectar en la clase Main para asignarle al botón.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            public void conectar(View view){
+                                String[] resultado = null;
+                                try {
+                                    String[] datos = new String[]{
+                                            "login",
+                                            server
+                                    };
+                                    AsyncQuery async = new AsyncQuery();
+                                    resultado = async.execute(datos).get();
+                                    consulta.setText(resultado[0]);
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }                            
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Dar permisos de acceso a Internet en el archivo Manifest.
+            </p>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Paso 4: </span>Ejecución de un query específico
+    </p>
+    <ol>
+        <li>
+            <p>
+                Crear un nuevo archivo php con el nombre query1, con el siguiente código adicional al código de
+                conexión.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            $query = $_POST["SQL"];
+                            $result = mysqli_query($con, $query);
+                            $filas = mysqli_num_rows($result);
+                            $columnas = mysqli_num_fields($result);
+                            $resultado = "Cantidad de filas: ".$filas."\r\n";
+                            $resultado .= "Cantidad de columnas: ".$columnas."\r\n";
+
+                            if($filas > 0){
+                                $i=0;
+                                while ($column = mysqli_fetch_field($result)) {
+                                    $resultado .= $column->name . "\t|";
+                                }
+                                $resultado .= "\r\n";
+                                while($row = mysqli_fetch_array($result)){
+                                    for($i=0;$i<$columnas;$i++){
+                                        $resultado .= $row[$i]."\t|";
+                                    }
+                                    $resultado .= "\r\n";
+                                }
+                            }
+                            else{
+                                echo "Tabla vacía\r\n";
+                            }
+
+                            echo $resultado;
+                            mysqli_free_result($result);
+                            mysqli_close($con);                       
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Agregar un botón adicional para ejecutar el query con el nombre consulta y colocar el siguiente código.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Deberá agregar un PlainText e inicializarlo en una variable llamada query de tipo EditText para
+                        que el usuario ingrese el query, adicional deberá agregar una variable con el nombre
+                        serverConsulta e inicializarla con la dirección del archivo query1.php
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            public void consulta(View view){
+                                String[] resultado = null;
+                                try {
+                                    String[] datos = new String[]{
+                                            "query",
+                                            serverConsulta,
+                                            query.getText().toString()
+                                    };
+                                    AsyncQuery async = new AsyncQuery();
+                                    resultado = async.execute(datos).get();
+                                    consulta.setText(resultado[0]);
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }                                               
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Agregar un else if a la función doInBackground con el siguiente código:
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            else if(type.equals("query")){
+                                try {
+                                    String query = datos[0][2];
+                                    URL url = new URL(login_url);
+                                    HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                                    httpURLConnection.setRequestMethod("POST");
+                                    httpURLConnection.setDoOutput(true);
+                                    httpURLConnection.setDoInput(true);
+                            
+                                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                                    String postdata = URLEncoder.encode("SQL","UTF-8")+"="+URLEncoder.encode(query,"UTF-8");
+                                    bufferedWriter.write(postdata);
+                                    bufferedWriter.flush();
+                                    bufferedWriter.close();
+                                    outputStream.close();
+                            
+                                    InputStream inputStream = httpURLConnection.getInputStream();
+                                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
+                                    String resultado="";
+                                    String line="";
+                            
+                                    while((line = bufferedReader.readLine()) != null){
+                                        resultado += line + System.getProperty("line.separator");
+                                    }
+                                    bufferedReader.close();
+                                    inputStream.close();
+                                    httpURLConnection.disconnect();
+                            
+                                    totalResultadoSQL = new String[]{
+                                            resultado
+                                    };
+                            
+                                } catch (MalformedURLException e ) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }                                                                     
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <h6>RETO 1 (15 puntos): Modifique el diseño y la programación para que el usuario no ingrese comandos SQL como se
+        realizó en la práctica, sino que indique el nombre de la Tabla que quiere consultar y un campo opcional para
+        especificar una validación. Ej.
+    </h6>
+    <div class="row">
+        <div class="col-6">
+            <div class="text-center"><img src="../images/lab12_2.png"></div>
+        </div>
+        <div class="col-6">
+            <div class="text-center"><img src="../images/lab12_3.png"></div>
+        </div>
+    </div>
+    <h6>RETO 2 (15 puntos): Modifique el diseño y la programación para que los resultados obtenidos de la consulta no se
+        muestren en un TextView, sino dentro de una tabla.
+    </h6>
+</body>
+
+</html>
