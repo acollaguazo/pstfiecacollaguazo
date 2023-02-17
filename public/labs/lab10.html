@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="public/stylesheets/styles.css" rel="stylesheet" />
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Laboratorio 10</title>
+</head>
+
+<body>
+    <h2>Laboratorio 10</h2>
+    <h2>Múltiples ventanas en Android Studio</h2>
+    <h4>Objetivo:</h4>
+    <ul>
+        <li>
+            <p>
+                Manipular diferentes ventanas el entorno de trabajo del software Android Studio a través de la
+                implementación de “Activities” para desarrollar aplicaciones más dinámicas.
+            </p>
+        </li>
+    </ul>
+    <h5>Duración:</h5>
+    <p>Ciento veinte (120) minutos.</p>
+    <h5>Materiales y Herramientas:</h5>
+    <ul>
+        <li>
+            <p>Software Android Studio</p>
+        </li>
+    </ul>
+
+    <h5>Procedimiento</h5>
+    <p>
+        <span class="h6">Paso 1: </span>Ejecutar un segundo "Activity"
+    </p>
+    <ol>
+        <li>
+            <p>
+                Iniciar el software Android Studio y crear un nuevo proyecto llamado Laboratorio10TLM.
+            </p>
+        </li>
+        <li>
+            <p>
+                Diseñar el primer “Activity” el cual tenga un botón de INICIO, como se muestra en la figura.
+            </p>
+            <div class="text-center"><img src="../images/lab10_1.png"></div>
+        </li>
+        <li>
+            <p>
+                Crear el segundo “Activity”, dar clic derecho en “App” (Sección Project) y seleccionar “New” ->
+                “Activity” -> “Empty Activity”.
+            </p>
+        </li>
+        <li>
+            <p>
+                Diseñar el segundo “Activity” para que muestre su nombre y un botón para volver al “Activity” inicial.
+            </p>
+        </li>
+        <li>
+            <p>
+                Añadir la función “inicio” en la clase “MainActivity” y asignarla al apartado “onClick” del botón
+                “INICIO”.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            public void inicio(View view) {
+                                Intent i = new Intent(this, Main2Activity.class );
+                                startActivity(i);
+                            }                        
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Al añadir la función, asegurarse que se han importado todas las librerías necesarias.
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Realizar una función en el segundo “Activity”, llamada “volver”, para regresar al “Activity” inicial,
+                invocando la función del sistema “finish( )”.
+            </p>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Actividad 1: </span>Presente capturas del dispositivo virtual o real ejecutando la aplicación
+        en el Paso 1.
+    </p>
+    <h6>Pregunta 1: ¿Qué es un “Activity” y cómo está conformado?</h6>
+    <h6>Pregunta 2: ¿Qué es un objeto “Intent” y para qué se lo utiliza?</h6>
+
+    <p>
+        <span class="h6">Paso 2: </span>Enviar parámetros entre “Activities”
+        en el Paso 1.
+    </p>
+    <ol>
+        <li>
+            <p>
+                Modificar el proyecto anterior para que el “Activity” principal tenga la siguiente apariencia
+            </p>
+            <div class="text-center"><img src="../images/lab10_2.png"></div>
+        </li>
+        <li>
+            <p>
+                Agregue un nuevo “Activity” al proyecto con el siguiente diseño.
+            </p>
+            <div class="text-center"><img src="../images/lab10_3.png"></div>
+        </li>
+        <li>
+            <p>
+                Editar la función “inicio” de la siguiente manera.
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            public void inicio(View view) {
+                                EditText et1 = (EditText) findViewById(R.id.editText);
+                                Intent i = new Intent(this, Main3Activity.class );
+                                i.putExtra("direccion", et1.getText().toString());
+                                startActivity(i);
+                            }                            
+                    </pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>
+                Crear la función “volver” similar al paso1 y agregar el siguiente código a la función “onCreate” del
+                tercer “Activity”
+            </p>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_code.png"></div>
+                <div class="col-10 my-auto border">
+                    <small>
+                        <pre>
+                            Bundle bundle = getIntent().getExtras();
+                            WebView webView1 = (WebView) findViewById(R.id.webView1);
+                            WebSettings conf = webView1.getSettings();
+                            conf.setJavaScriptEnabled(true);
+                            webView1.setWebViewClient(new WebViewClient());
+                            webView1.loadUrl("https://" + bundle.getString("direccion"));               
+                    </pre>
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"><img src="../images/lab_danger.png"></div>
+                <div class="col-10 my-auto">
+                    <small>
+                        Para acceder a Internet es necesario dar los permisos necesarios a la aplicación, para ello se
+                        debe agregar en el archivo AndroidManifest.xml la siguiente línea antes de la etiqueta
+                        &lt;application&gt;:
+                        <pre>&lt;uses-permission android:name="android.permission.INTERNET"/&gt;</pre>
+                        Si se desea trabajar con el protocolo http se debe agregar la siguiente línea dentro de la
+                        etiqueta &lt;application&gt;:
+                        <pre>android:usesCleartextTraffic="true"</pre>
+                    </small>
+                </div>
+            </div>
+        </li>
+    </ol>
+
+    <p>
+        <span class="h6">Actividad 2: </span>Presente capturas del dispositivo virtual o real ejecutando la aplicación
+        en el Paso 2.
+    </p>
+    <h6>Pregunta 3: ¿Cuál es la diferencia entre un objeto “Intent” y un objeto “Bundle”?</h6>
+    <h6>RETO: Genere una aplicación que muestre un menú con las siguientes opciones:</h6>
+    <ul>
+        <li>
+            <p>
+                INICIO
+            </p>
+        </li>
+        <li>
+            <p>
+                REVISAR CORREO
+            </p>
+        </li>
+        <li>
+            <p>
+                ACERCA DE
+            </p>
+        </li>
+    </ul>
+    <p>
+        El “activity” inicio, debe ejecutar un nuevo “activity” en donde se pida un usuario y contraseña y éste a su vez
+        envíe dichos parámetros a otro “activity” que muestre el mensaje “Bienvenido &lt;user&gt;”.<br>
+        El “activity” revisar correo, ejecuta un “activity” que muestre la página de gmail.com y se pueda revisar el
+        correo.<br>
+        El “activity” Acerca de, ejecuta un “activity” que muestre sus nombres y matrícula.<br>
+        Todos los “activities” deben tener un botón de retorno al menú principal, únicamente el “activity” Acerca
+        De, debe tener un botón de salida para cerrar la aplicación
+    </p>
+</body>
+
+</html>
